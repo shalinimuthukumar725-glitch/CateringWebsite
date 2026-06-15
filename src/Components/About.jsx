@@ -162,9 +162,9 @@ function About() {
           style={{
             display: "grid",
             gridTemplateColumns:
-              "repeat(auto-fit,minmax(250px,1fr))",
+              "repeat(auto-fit,minmax(50px,1fr))",
             gap: "50px",
-            marginTop: {md:"50px"},
+            // marginTop: {md:"50px"},
           }}
         >
           {[
@@ -191,7 +191,7 @@ function About() {
                 alt=""
                 style={{
                   width: "50%",height:"70%",
-                  borderRadius: "15px",
+                  borderRadius: "15px", marginTop:"10%"
                 }}
               />
 

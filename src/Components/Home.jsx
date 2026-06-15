@@ -18,8 +18,7 @@ function Home(){
     {
       title: "Wedding Catering",
             desc: `Elegant wedding menus with traditional & modern dishes.
-            Make your wedding celebration truly unforgettable with our premium catering services.
-      We create customized menus that perfectly match your taste and traditions.`,
+            Make your wedding celebration truly unforgettable with our premium catering services.`,
             img: "/rice.png",
             icon:
              (<motion.div
@@ -33,9 +32,7 @@ function Home(){
     {
        title: "Corporate Events",
             desc: `From board meetings and conferences to annual celebrations and team gatherings, 
-            we deliver premium catering solutions tailored to your corporate needs. Our carefully crafted 
-            menus, impeccable service, and attention to detail ensure a seamless and memorable dining
-             experience for every event.`,
+            we deliver premium catering solutions tailored to your corporate needs.`,
             img: "/food.png",
             icon:
              (<motion.div
@@ -424,7 +421,7 @@ function Home(){
         style={{
           display: "grid",
           gridTemplateColumns:
-            "repeat(auto-fit,minmax(350px,1fr))",
+            "repeat(auto-fit,minmax(250px,1fr))",
           gap: "25px",
         }}
       >

@@ -43,7 +43,7 @@ Location: ${formData.location}`;
       <Box
         sx={{
           height: "50vh",
-          backgroundImage: "url('/home.png')",
+          backgroundImage: "linear-gradient( rgba(0,0,0,0.5)),url('/home.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",
@@ -65,7 +65,7 @@ Location: ${formData.location}`;
 
          <motion.h1
                   initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 ,color:["#ffffff"," #e4729f", "#78104d","#ffffff"],}}
+                  animate={{ opacity: 1, y: 0 ,color:["#9f025e","#f9c929"],}}
                   transition={{opacity:{ duration: 0.8 },y:{duration:0.8},color:{duration:4,repeat:Infinity},}}
                   style={{ fontSize: "60px", fontWeight: "bold" }}
                 >

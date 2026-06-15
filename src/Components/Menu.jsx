@@ -532,11 +532,11 @@ function Menu() {
 
   if (!selectedEvent) {
     return (
-      <Box sx={{ p: 4 }}>
+      <Box sx={{ p: 4 ,background:"linear-gradient(90deg,pink,white,pink)"}}>
         <Typography
           variant="h3"
-          textAlign="center"
-          mb={5}
+          sx={{textAlign:"center",mb:5}}
+          
         >
           Choose Your Event
         </Typography>
@@ -566,7 +566,9 @@ function Menu() {
               }}
               sx={{
                 cursor: "pointer",
-                borderRadius: "20px",
+                borderRadius: "20px",textAlign:"center",
+                background:"linear-gradient(190deg,crimson,pink,crimson)",
+                
               }}
             >
               {/* <CardMedia
@@ -577,8 +579,20 @@ function Menu() {
 
               <Typography
                 textAlign="center"
-                p={2}
-                fontWeight="bold"
+                sx={{p:1,fontWeight:"bold",color:"purple",
+                  animation: "floatText 3s ease-in-out infinite",
+                
+                  "@keyframes floatText" : {
+                  "0%":{
+                    transform: "translateY(0px)",
+                  },
+                  "50%":{
+                    transform:"translateX(-10px)",
+                  },
+                  "100%" : {
+                     transform: "translateY(0px)",
+                  },
+                },}}
               >
                 {event}
               </Typography>
@@ -607,12 +621,11 @@ function Menu() {
         }}
       >
         <Button
-          // fullWidth
-          variant="contained"
+    
           onClick={() =>
             setSelectedEvent(null)
           }
-          sx={{ mb: 3,width:{md:"fullwidth",xs:20},ml:{xs:3} }}
+          sx={{ mb: 3,width:{xs:20},fontWeight:"bold",fontSize:15,ml:{xs:3,md:10},p:1 ,background:"linear-Gradient(brown,pink)",color:"white",fontFamily:"cursive"}}
         >
           Back
         </Button>
@@ -624,7 +637,7 @@ function Menu() {
             key={category}
             fullWidth
             sx={{
-              mb: 1, 
+              mb: 1, fontWeight:"bolder",fontFamily:"emoji",fontSize:{md:15},background:"linear-gradient(120deg,brown,pink)",color:"white"
             }}
             onClick={() =>
               setSelectedCategory(
@@ -643,6 +656,7 @@ function Menu() {
         sx={{
           flex: 1,
           p: {md:4},
+          background:"linear-gradient(pink,white,pink)"
         }}
       >
         <Typography
@@ -688,20 +702,7 @@ function Menu() {
                 component="img"
                 image={img}
                 height="250"
-//                 sx= {{animation: "moveCenter 0.9s ease forwards",
 
-//   "@keyframes moveCenter" : {
-//   from :{
-//     // transform: "translateY(-80px)",
-//         opacity: 0,
-//          transform: "translateX(-200px)scale(0.95)",
-//   },
-//   to : {
-//     opacity: 1,
-//      transform: "translateX(0)scale(0.95)",
-//   }
-// }
-// }}
               />
             </Card>
           ))}

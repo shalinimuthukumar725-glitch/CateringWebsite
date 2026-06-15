@@ -8,8 +8,7 @@ function Services() {
     {
       title: "Wedding Catering",
       desc: `Elegant wedding menus with traditional & modern dishes.
-      Make your wedding celebration truly unforgettable with our premium catering services.
-We create customized menus that perfectly match your taste and traditions.`,
+      Make your wedding celebration truly unforgettable with our premium catering services.`,
       img: "/rice.png",
       icon:
        ( <motion.div
@@ -23,8 +22,7 @@ We create customized menus that perfectly match your taste and traditions.`,
     {
       title: "60th Wedding",
       desc: `Colorful birthday setups with tasty snacks and meals.
-      Celebrate six decades of togetherness with a catering experience worthy of the occasion.
-Our specially curated menus honor tradition while delivering exceptional taste.`,
+      Celebrate six decades of togetherness with a catering experience worthy of the occasion.`,
       img: "/home.png",
       icon:
        (<motion.div
@@ -38,8 +36,7 @@ Our specially curated menus honor tradition while delivering exceptional taste.`
     {
       title: "70th Wedding",
       desc: `Mark this remarkable milestone with a catering service designed to honor a lifetime of memories.
-Our menus feature a perfect blend of traditional flavors and modern culinary excellence.
-We carefully prepare every dish using premium ingredients and hygienic cooking practices.`,
+Our menus feature a perfect blend of traditional flavors and modern culinary excellence.`,
       img: "/Gallerybanner1.png",
       icon:
     (<motion.div
@@ -53,8 +50,7 @@ We carefully prepare every dish using premium ingredients and hygienic cooking p
      {
       title: "80th Wedding",
       desc: `Professional catering for meetings & corporate gatherings.
-      Honor an incredible journey of love and commitment with our premium catering services.
-We provide carefully crafted menus that reflect the dignity and significance of the occasion.`,
+      Honor an incredible journey of love and commitment with our premium catering services.`,
       img: "/premium.png",
       icon:
        (<motion.div
@@ -68,8 +64,7 @@ We provide carefully crafted menus that reflect the dignity and significance of 
      {
       title: "Birthday Function ",
       desc: `Turn every birthday celebration into a delightful and memorable experience with our catering services.
-We offer customized menus suitable for children, adults, and guests of all ages.
-From delicious snacks and desserts to complete meal packages, we have everything covered.`,
+We offer customized menus suitable for children, adults, and guests of all ages.`,
       img: "/snack.png",
       icon:
        (<motion.div
@@ -83,9 +78,7 @@ From delicious snacks and desserts to complete meal packages, we have everything
     {
       title: "Engagement",
       desc: `Beautiful engagement food setups with premium service.
-      Celebrate the beginning of a beautiful journey with our elegant engagement catering services.
-We offer customized menus designed to complement your special occasion.
-From traditional favorites to contemporary culinary delights, we provide a variety of options.`,
+      Celebrate the beginning of a beautiful journey with our elegant engagement catering services.`,
       img: "/sweet1.png",
       icon:
        (<motion.div
@@ -99,9 +92,7 @@ From traditional favorites to contemporary culinary delights, we provide a varie
     {
       title: "Mehandi",
       desc: `Live cooking & outdoor event catering services.
-      Add flavor and excitement to your Mehendi celebration with our vibrant catering services.
-We offer creative menus that perfectly complement the festive atmosphere of the event.
-Guests can enjoy a variety of snacks, live counters, beverages, and specialty dishes.`,
+      Add flavor and excitement to your Mehendi celebration with our vibrant catering services.`,
       img: "/sweet.png",
       icon:
        (<motion.div
@@ -115,9 +106,7 @@ Guests can enjoy a variety of snacks, live counters, beverages, and specialty di
     {
       title: "Seemantham",
       desc: `Grand reception meals with luxury presentation.
-      Celebrate the cherished tradition of Seemantham with authentic and elegant catering services.
-We offer specially curated menus that honor cultural values and family traditions.
-Traditional South Indian delicacies are prepared with care and attention to detail.`,
+      Celebrate the cherished tradition of Seemantham with authentic and elegant catering services.`,
       img: "/bangle.png",
       icon:
        (<motion.div
@@ -131,9 +120,7 @@ Traditional South Indian delicacies are prepared with care and attention to deta
     {
       title: "House Warming",
       desc: `Traditional home event catering with family meals.
-      Welcome new beginnings with our premium housewarming catering services.
-We create delightful menus that bring family and friends together over great food.
-Traditional South Indian meals and modern dining options are available.`,
+      Welcome new beginnings with our premium housewarming catering services.`,
       img: "/tiffin.png",
       icon:
        (<motion.div
@@ -147,10 +134,7 @@ Traditional South Indian meals and modern dining options are available.`,
      {
       title: "Graduation Ceremony",
       desc: `Honor academic achievements with delicious cuisine, elegant presentation,
-       and seamless service.A graduation ceremony is a formal academic event celebrating the
-        successful completion of a course of study at a school, college, or university We create 
-        memorable dining experiences that make every graduation
-        celebration truly special.`,
+       and seamless service.`,
       img: "/snack1.png",
       icon:
        (<motion.div
@@ -164,9 +148,7 @@ Traditional South Indian meals and modern dining options are available.`,
      {
       title: "Corporate Events",
       desc: `From board meetings and conferences to annual celebrations and team gatherings, 
-      we deliver premium catering solutions tailored to your corporate needs. Our carefully crafted 
-      menus, impeccable service, and attention to detail ensure a seamless and memorable dining
-       experience for every event.`,
+      we deliver premium catering solutions tailored to your corporate needs.`,
       img: "/food.png",
       icon:
        (<motion.div
@@ -181,9 +163,7 @@ Traditional South Indian meals and modern dining options are available.`,
     {
       title: "Retirement",
       desc: `Pure vegetarian special catering packages.
-      Celebrate a successful career and a new beginning with our professional catering services.
-We provide thoughtfully designed menus to suit the significance of the occasion.
-Our offerings include traditional meals, contemporary dishes, and customized dining options.`,
+      Celebrate a successful career and a new beginning with our professional catering services.`,
       img: "/retirement.png",
       icon:
        (<motion.div
