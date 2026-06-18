@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Box ,Grid,Card,Typography} from "@mui/material";
 
 function About() {
   return (
@@ -158,50 +159,98 @@ function About() {
           Meet Our Team
         </h2>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(50px,1fr))",
-            gap: "50px",
-            // marginTop: {md:"50px"},
+             <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:4}}>
+  {[
+    {
+      name: "Rajesh Kumar",
+      role: "Founder & CEO",
+      education: "MBA, Hospitality Management",
+      image: "/founder.png",
+    },
+    {
+      name: "Priya Sharma",
+      role: "Head Chef",
+      education: "Diploma in Culinary Arts",
+      image: "/headchef.png",
+    },
+    {
+      name: "Arun Nair",
+      role: "Operations Manager",
+      education: "BBA, Logistics Management",
+      image: "/operation.png",
+    },
+  ].map((member, index) => (
+      <Card
+      key={index}
+        sx={{
+          width:{
+            xs:"50%",
+            sm:"280px",
+            md:"320px",
+          },
+
+          textAlign: "center",
+          p: 3,
+          borderRadius: "20px",
+          background: "linear-gradient(wheat,white,wheat)",
+          boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
+          transition: "0.4s",
+          "&:hover": {
+            transform: "translateY(-10px)",
+            boxShadow: "0 15px 35px brown",
+          },
+        }}
+      >
+        <Box
+          component="img"
+          src={member.image}
+          alt={member.name}
+          sx={{
+            width: 120,
+            height: 120,
+            borderRadius: "50%",
+            objectFit: "cover",
+            border: "4px solid #D4A373",
+            transition: "0.4s",
+            "&:hover": {
+              transform: "scale(1.08)",
+            },
+          }}
+        />
+
+        <Typography
+          variant="h6"
+          sx={{
+            mt: 2,
+            fontWeight: 700,
           }}
         >
-          {[
-            "Founder",
-            "Head Chef",
-            "Operations Manager",
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              whileHover={{
-                scale: 1.05,
-                rotate: 1,
-              }}
-              style={{
-                background: "#fff",
-                padding: {md:"40px"},
-                borderRadius: "20px",
-                boxShadow:
-                  "0 5px 20px rgba(0,0,0,0.1)",
-              }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
-                alt=""
-                style={{
-                  width: "50%",height:"70%",
-                  borderRadius: "15px", marginTop:"10%"
-                }}
-              />
+          {member.name}
+        </Typography>
 
-              <h3 style={{ marginTop: "15px" }}>
-                {item}
-              </h3>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+        <Typography
+          sx={{
+            color: "#D4A373",
+            fontWeight: 600,
+            mt: 1,
+          }}
+        >
+          {member.role}
+        </Typography>
+
+        <Typography
+          sx={{
+            color: "#666",
+            fontSize: "0.95rem",
+            mt: 1,
+          }}
+        >
+          🎓 {member.education}
+        </Typography>
+      </Card>
+  ))}
+</Box>
+</div>
 
       {/* STATISTICS */}
 
@@ -219,11 +268,12 @@ function About() {
             gap: "25px",
           }}
         >
+          
           {[
-            { num: "25+", text: "Years Of Excellence" },
-            { num: "250+", text: "Menu Options" },
-            { num: "340+", text: "Staff Members" },
-            { num: "125K+", text: "Happy Foodies" },
+            { num: "25+", text: "Years Of Excellence" ,bg:"linear-gradient(135deg, #f6c2f3,skyblue 100%)"},
+            { num: "250+", text: "Menu Options",bg:"linear-gradient(135deg, white 0%, orange 100%)" },
+            { num: "340+", text: "Staff Members" ,bg:"linear-gradient(135deg, skyblue 0%, #b6cf6a 100%)"},
+            { num: "125K+", text: "Happy Foodies" ,bg:"linear-gradient(135deg,  #d7e6ff 0%,violet 100%)"},
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -243,19 +293,19 @@ function About() {
                 y: -10,
               }}
               style={{
-                background:
-                  "linear-gradient(135deg,#1f2937,#374151)",
-                color: "#fff",
+                background:item.bg,border:"1px solid skyblue",
+                color: "#fff",position:"relative", overflow:"hidden",boxShadow:"0 5px 15px brown",
                 textAlign: "center",
                 padding: "40px 20px",
                 borderRadius: "20px",
               }}
-            >
+            > 
+             
               <h1>{item.num}</h1>
               <p>{item.text}</p>
             </motion.div>
           ))}
-        </div>
+        </div> 
       </div>
 
       {/* CTA */}

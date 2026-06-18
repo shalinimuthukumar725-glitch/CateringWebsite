@@ -43,8 +43,8 @@ Location: ${formData.location}`;
       <Box
         sx={{
           height: "50vh",
-          backgroundImage: "linear-gradient( rgba(0,0,0,0.5)),url('/home.png')",
-          backgroundSize: "cover",
+          backgroundImage: "url('/conban.png')",
+          backgroundSize: "cover", 
           backgroundPosition: "center",
           position: "relative",
           display: "flex",
@@ -65,7 +65,7 @@ Location: ${formData.location}`;
 
          <motion.h1
                   initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 ,color:["#9f025e","#f9c929"],}}
+                  animate={{ opacity: 1, y: 0 ,color:["#fff","#25e7d8"],textShadow:"0 0 5px gold "}}
                   transition={{opacity:{ duration: 0.8 },y:{duration:0.8},color:{duration:4,repeat:Infinity},}}
                   style={{ fontSize: "60px", fontWeight: "bold" }}
                 >
@@ -223,7 +223,7 @@ Location: ${formData.location}`;
         textAlign="center"
         sx={{
           fontWeight: 800,
-          color: "#ff8c00",
+          color:["#e90000", "violet"],textShadow:"0 0 5px gold",
           mb: 2,
         }}
       >
@@ -233,10 +233,11 @@ Location: ${formData.location}`;
       <Typography
         textAlign="center"
         sx={{
-          color: "#666",
+          color: "black",
           mb: 6,
         //   maxWidth: "700px",
           mx: "auto",
+          fontSize:{md:20},
           lineHeight:1.8
         }}
       >
@@ -264,7 +265,7 @@ while you enjoy every special moment with your family and friends.
                 p: 4,
                 textAlign: "center",
                 borderRadius: "25px",
-                background:"linear-gradient(#ffbf6d,#f02167,#871080)"
+                background:"linear-gradient(135deg,pink,skyblue)"
               }}
             >
               <MapPin
@@ -286,7 +287,7 @@ while you enjoy every special moment with your family and friends.
                 Address
               </Typography>
 
-              <Typography sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:"orange",fontWeight:600}}>
+              <Typography sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:["pink","blue"],fontWeight:600}}>
                 Royal Feast Catering
                 <br />
                 Chennai, Tamil Nadu
@@ -309,7 +310,7 @@ while you enjoy every special moment with your family and friends.
                 p: 4,
                 textAlign: "center",
                 borderRadius: "25px",
-            background:"linear-gradient(#ffbf6d,#f02167,#871080)"
+            background:"linear-gradient(135deg,skyblue,pink)"
               }}
             >
               <Mail
@@ -334,7 +335,7 @@ while you enjoy every special moment with your family and friends.
               <Typography  
               component="a"
               href="mailto:shalinimuthukumar725@gmail.com"
-              sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:"orange",
+              sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:"blue",
               textDecoration:"none",fontWeight:600,"&:hover":{color:"yellow"}}}>
                 shalinimuthukumar <br />725@gmail.com
               </Typography>
@@ -356,7 +357,8 @@ while you enjoy every special moment with your family and friends.
                 p: 4,
                 textAlign: "center",
                 borderRadius: "25px",
-                background:"linear-gradient(#ffbf6d,#f02167,#871080)"
+                // background:"linear-gradient( #ffbf6d, #f02167, #871080)"
+                background:"linear-gradient(135deg,pink,skyblue)"
               }}
             >
               <motion.div
@@ -388,7 +390,7 @@ while you enjoy every special moment with your family and friends.
                 Contact
               </Typography>
 
-              <Typography sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:"orange",fontWeight:600}}>
+              <Typography sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:"blue",fontWeight:600}}>
                 +91 98765 43210
                 <br />
                 +91 91234 56789

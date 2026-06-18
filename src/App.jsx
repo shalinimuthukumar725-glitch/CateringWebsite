@@ -13,7 +13,6 @@ import Navbar from './Components/Navbar'
 import Contact from './Components/Contact'
 import Gallery from  './Components/Gallery'
 import Menu from './Components/Menu'
-import EventMenu from './Components/EventMenu'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,7 +29,6 @@ function App() {
     <Route path='/Contact' element={<Contact/>}/>
     <Route path='/gallery' element={<Gallery/>}/>
     <Route path='/menu' element={<Menu/>}/>
-     {/* <Route path='/menu:eventMenu' element={<EventMenu/>}/> */}
    </Routes>
 
    <Footer/>

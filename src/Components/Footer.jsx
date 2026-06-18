@@ -61,7 +61,7 @@ function Footer(){
         sx={{
             // width:"100vw",
             // marginLeft:"calc(-50vw + 50%)",
-          background:"linear-gradient(90deg, #e4729f, #78104d)",
+          background:"linear-gradient( purple 0%,pink 100%)",
           overflow: "hidden",
           whiteSpace: "nowrap",
           py: 1.5,

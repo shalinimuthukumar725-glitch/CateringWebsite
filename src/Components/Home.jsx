@@ -270,8 +270,8 @@ function Home(){
           duration: 6,
         }}
         style={{
-          width: 250,
-          height: 250,
+          width: 50,
+          height: 50,
           borderRadius: "50%",
           background: "linear-gradient( brown,grey)",
           boxShadow:"5px 5px 20px gold",
@@ -304,7 +304,6 @@ function Home(){
     <div
             style={{
               padding: "80px 10%",
-              background: "#fff",
               // height:{md:100,xs:20},
               textAlign: "center",
             }}
@@ -315,7 +314,8 @@ function Home(){
               transition={{ duration: 1 }}
               style={{
                 fontSize: "45px",
-                color: "#1f2937",
+                color: "brown",
+                textShadow:"0 0 5px grey",
                    animation: "floatText 3s ease-in-out infinite",
 
   "@keyframes floatText" : {
@@ -365,10 +365,11 @@ function Home(){
           scale: 1.05,
         }}
         style={{
-          background: "linear-gradient(135deg, pink,pink)",
+                 background:
+     "linear-gradient(135deg, #f6dde3 0%, #f2eaf1 25%, #f8f5f3 50%, #eaf4f0 75%, #dcefe6 100%)",backdropFilter:"blur(10px)",
           padding: "20px",
-          borderRadius: "20px",
-          boxShadow: "0 5px 20px rgba(53, 182, 74, 0.1)",
+          borderRadius: "12px",
+          boxShadow: "2px 0px 15px brown",
           textAlign: "center",
          
         }}
@@ -383,11 +384,12 @@ function Home(){
               objectFit: "cover",
               borderRadius: "12px",
               marginBottom: "15px",
+              border:"1px solid white",boxShadow:"2px 0px 15px skyblue"
             }}
           />
         )}
     
-        <h3>{item.title}</h3>
+        <h3 style={{color:"#da4373"}}>{item.title}</h3>
       </motion.div>
     ))}
             </div>
@@ -395,7 +397,7 @@ function Home(){
 
           {/* services */}
 
-    <div style={{ padding: "10px 10%" }}>
+    <div style={{ padding: "10px 10%",}}>
       <h4
         style={{
           color: "#78104d",
@@ -497,8 +499,10 @@ function Home(){
     py: 10,
     px: 2,
 
-    background:
-      "linear-gradient(135deg,#f8e8ff, #bab0d4, #ffe6f7)",
+    // background:
+    //   "linear-gradient(135deg,#f8e8ff, #bab0d4, #ffe6f7)",
+           background:
+     "linear-gradient(200deg, #f6dde3 0%, #f2eaf1 25%, #f8f5f3 50%, #eaf4f0 75%, #dcefe6 100%)",
 
     overflow: "hidden",
     position: "relative",
@@ -527,7 +531,7 @@ function Home(){
       background:
         "linear-gradient(90deg,#7b2cbf,#ff4d9d)",
 
-      WebkitBackgroundClip: "text",
+      WebkitBackgroundClip: "text", textShadow:"0 0 5px violet",
 
       WebkitTextFillColor:
         "transparent",
@@ -571,11 +575,13 @@ function Home(){
     backdropFilter:
       "blur(20px)",
 
-    background:
-      "rgba(140, 111, 187, 0.5)",
+             background:
+     "linear-gradient(135deg,pink 0%, #f2eaf1 25%, #f8f5f3 50%, #eaf4f0 75%, #dcefe6 100%)",
+    // background:
+    //   "rgba(140, 111, 187, 0.5)",
 
     boxShadow:
-      "0 20px 60px rgba(123,44,191,.2)",
+      "0px 0px 20px skyblue",
   }}
 >
 

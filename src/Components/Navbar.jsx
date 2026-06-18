@@ -3,6 +3,12 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 import MenuIcon from "@mui/icons-material/Menu";
+import { Home } from "@mui/icons-material";
+import { Info } from "@mui/icons-material";
+import { RoomService } from "@mui/icons-material";
+import { PhotoLibrary } from "@mui/icons-material";
+import { ContactMail } from "@mui/icons-material";
+import { RestaurantMenu } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -132,14 +138,15 @@ function Navbar() {
     </IconButton>
 
     {[
-      { name: "Home", path: "/" },
-      { name: "About", path: "/about" },
-      { name: "Services", path: "/services" },
-      { name: "Gallery", path: "/gallery" },
-      { name: "Contact", path: "/contact" },
-      { name: "Menu", path: "/menu" },
+      { name: "Home", path: "/",icon:<Home style={{color:"skyblue"}}/> },
+      { name: "About", path: "/about" ,icon:<Info style={{color:"pink"}}/>},
+      { name: "Services", path: "/services" ,icon:<RoomService style={{color:"skyblue"}}/>},
+      { name: "Gallery", path: "/gallery",icon:<PhotoLibrary style={{color:"pink"}}/> },
+      { name: "Contact", path: "/contact",icon:<ContactMail style={{color:"skyblue"}}/> },
+      { name: "Menu", path: "/menu" ,icon:<RestaurantMenu style={{color:"pink"}}/>},
     ].map((item) => (
       <Button
+      startIcon={item.icon}
         key={item.name}
         fullWidth
         sx={{

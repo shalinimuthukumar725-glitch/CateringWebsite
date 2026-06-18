@@ -181,16 +181,16 @@ We offer customized menus suitable for children, adults, and guests of all ages.
     <div>
 
       {/* 🔥 BANNER */}
-      <div style={bannerStyle}>
+    
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 ,color:["#ffffff","#ffd700","#ff9800","#fdd034","#ffffff"],}}
+          animate={{ opacity: 1, y: 0 ,color:["#ec1717","#ff0080","#00eeff","#34fd34","#a5ce11"],}}
           transition={{opacity:{ duration: 0.8 },y:{duration:0.8},color:{duration:4,repeat:Infinity},}}
-          style={{ fontSize: "60px", fontWeight: "bold" }}
+          style={{ fontSize: "60px", fontWeight: "bold",textAlign:"center" }}
         >
           Services
         </motion.h1>
-      </div>
+      
 
       {/* 🔥 GRID */}
       <div style={containerStyle}>
@@ -239,18 +239,6 @@ We offer customized menus suitable for children, adults, and guests of all ages.
 
 /* 🔥 STYLES */
 
-const bannerStyle = {
-  height: "300px",
-  backgroundImage:
-    "linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('/home.png')",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  
-//   position: "relative",
-};
 
 const containerStyle = {
   display: "grid",
@@ -261,7 +249,7 @@ const containerStyle = {
 };
 
 const cardStyle = {
-  background: "linear-gradient(135deg,pink,white,pink)",
+  background: "linear-gradient(135deg,wheat,pink)",
   borderRadius: "12px",
   overflow: "hidden",
   // boxShadow: "0 5px 15px gold",
