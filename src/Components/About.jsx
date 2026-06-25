@@ -1,367 +1,831 @@
 import { motion } from "framer-motion";
-import { Box ,Grid,Card,Typography} from "@mui/material";
+import { Link } from "react-router-dom";
 
 function About() {
   return (
     <>
-      {/* ABOUT BANNER */}
+<div
+  style={{
+    height: "400px",
+    position: "relative",
+    overflow: "hidden",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }}
+>
 
-      <div
-        style={{
-          height: "400px",
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          position: "relative",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(0,0,0,0.5)",
-          }}
-        />
+  {/* Background Video */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    style={{
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      zIndex: 0,
+    }}
+  >
+    <source
+      src="/cooking.mp4"
+      type="video/mp4"
+    />
+  </video>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 1.2 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          style={{
-            position: "relative",
-            textAlign: "center",
-            color: "#fff",
-          }}
-        >
-          <h1
-            style={{
-              fontSize: "60px",
-              marginBottom: "10px",
-            }}
-          >
-            About Us
-          </h1>
 
-          <p>Home / About Us</p>
-        </motion.div>
-      </div>
+  {/* Dark Overlay */}
+  <div
+    style={{
+      position:"absolute",
+      inset:0,
+      background:"rgba(0,0,0,0.55)",
+      zIndex:1,
+    }}
+  />
 
-      {/* ABOUT COMPANY */}
 
-      <div
-        style={{
-          padding: "100px 10%",
-          display: "grid",
-          gridTemplateColumns:
-            "repeat(auto-fit,minmax(320px,1fr))",
-          gap: "50px",
-          alignItems: "center",
-        }}
-      >
-        {/* IMAGE */}
+  {/* Text */}
+  <motion.div
+    initial={{opacity:0, y:50}}
+    animate={{opacity:1, y:0}}
+    transition={{duration:1}}
+    style={{
+      position:"relative",
+      zIndex:2,
+      color:"white",
+      textAlign:"center",
+    }}
+  >
 
-        <motion.div
-          initial={{ opacity: 0, x: -150 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1555244162-803834f70033"
-            alt=""
-            style={{
-              width: "100%",
-              borderRadius: "20px",
-            }}
-          />
-        </motion.div>
+    <h1
+      style={{
+        fontSize:"clamp(35px,8vw,60px)",
+        fontFamily:"Playfair Display",
+      }}
+    >
+      About Us
+    </h1>
 
-        {/* CONTENT */}
+    <p>
+      Home / About Us
+    </p>
 
-        <motion.div
-          initial={{ opacity: 0, x: 150 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <p
-            style={{
-              color: "#ff6b35",
-              letterSpacing: "2px",
-              fontWeight: "bold",
-            }}
-          >
-            ABOUT US
-          </p>
+  </motion.div>
 
-          <h2
-            style={{
-              fontSize: {md:"50px"},
-              color: "#1f2937",
-              marginTop: "10px",
-            }}
-          >
-            Indulge In A Celebration With Great Food!
-          </h2>
+</div>
+{/* ABOUT COMPANY */}
 
-          <p
-            style={{
-              lineHeight: "2",
-              color: "#666",
-              marginTop: "20px",
-        
-            }}
-          >
-            Royal Feast Catering Service provides exceptional
-            catering experiences for weddings, receptions,
-            engagements, corporate events and family
-            celebrations. We focus on quality food,
-            professional service and unforgettable moments.
-          </p>
+<div
+  style={{
+    padding:"100px 8%",
+    display:"grid",
+    gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",
+    gap:"60px",
+    alignItems:"center",overflow:"hidden"
+  }}
+>
 
-          <button
-            style={{
-              marginTop: "25px",
-              padding: "12px 25px",
-              borderRadius: "30px",
-              border: "none",
-              background:
-                "linear-gradient(90deg,#ff6b35,#ffd700)",
-              color: "#fff",
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
-          >
-            Book Now
-          </button>
-        </motion.div>
-      </div>
-      
+{/* IMAGE */}
 
-      {/* TEAM */}
+<motion.div
+initial={{opacity:0,x:-100}}
+whileInView={{opacity:1,x:0}}
+transition={{duration:1}}
+viewport={{once:true}}
+>
 
-      <div
-        style={{
-          padding: {md:"50px 10%",xs:"50px 5%"},
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "45px",
-            color: "#1f2937",
-          }}
-        >
-          Meet Our Team
-        </h2>
+<img
+src="https://images.unsplash.com/photo-1555244162-803834f70033"
+alt=""
+style={{
+ width:"100%",
+ borderRadius:"30px",
+ boxShadow:"0 20px 40px rgba(0,0,0,0.2)",
+}}
+/>
 
-             <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:4}}>
-  {[
-    {
-      name: "Rajesh Kumar",
-      role: "Founder & CEO",
-      education: "MBA, Hospitality Management",
-      image: "/founder.png",
-    },
-    {
-      name: "Priya Sharma",
-      role: "Head Chef",
-      education: "Diploma in Culinary Arts",
-      image: "/headchef.png",
-    },
-    {
-      name: "Arun Nair",
-      role: "Operations Manager",
-      education: "BBA, Logistics Management",
-      image: "/operation.png",
-    },
-  ].map((member, index) => (
-      <Card
-      key={index}
-        sx={{
-          width:{
-            xs:"50%",
-            sm:"280px",
-            md:"320px",
-          },
+</motion.div>
 
-          textAlign: "center",
-          p: 3,
-          borderRadius: "20px",
-          background: "linear-gradient(wheat,white,wheat)",
-          boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
-          transition: "0.4s",
-          "&:hover": {
-            transform: "translateY(-10px)",
-            boxShadow: "0 15px 35px brown",
-          },
-        }}
-      >
-        <Box
-          component="img"
-          src={member.image}
-          alt={member.name}
-          sx={{
-            width: 120,
-            height: 120,
-            borderRadius: "50%",
-            objectFit: "cover",
-            border: "4px solid #D4A373",
-            transition: "0.4s",
-            "&:hover": {
-              transform: "scale(1.08)",
-            },
-          }}
-        />
 
-        <Typography
-          variant="h6"
-          sx={{
-            mt: 2,
-            fontWeight: 700,
-          }}
-        >
-          {member.name}
-        </Typography>
+{/* CONTENT */}
 
-        <Typography
-          sx={{
-            color: "#D4A373",
-            fontWeight: 600,
-            mt: 1,
-          }}
-        >
-          {member.role}
-        </Typography>
+<motion.div
+initial={{opacity:0,x:100}}
+whileInView={{opacity:1,x:0}}
+transition={{duration:1}}
+viewport={{once:true}}
+>
 
-        <Typography
-          sx={{
-            color: "#666",
-            fontSize: "0.95rem",
-            mt: 1,
-          }}
-        >
-          🎓 {member.education}
-        </Typography>
-      </Card>
-  ))}
-</Box>
+<p
+style={{
+color:"#D4A373",
+letterSpacing:"3px",
+fontWeight:"bold"
+}}
+>
+WHO WE ARE
+</p>
+
+
+<h2
+style={{
+fontSize:"clamp(35px,5vw,50px)",
+fontFamily:"Playfair Display",
+color:"#3B1F0B",
+lineHeight:"1.2"
+}}
+>
+Creating Beautiful Moments With Exceptional Taste
+</h2>
+
+
+<p
+style={{
+marginTop:"20px",
+lineHeight:"2",
+color:"#666",
+fontFamily:"Poppins"
+}}
+>
+Royal Feast Catering delivers premium catering
+experiences for weddings, receptions, corporate
+events and celebrations. From traditional flavours
+to modern cuisine, we create unforgettable dining
+moments with quality and passion.
+</p>
+
+<Link
+to="/contact"
+style={{textDecoration:"none"}}>
+<button
+style={{
+marginTop:"25px",
+padding:"14px 35px",
+border:"none",
+borderRadius:"30px",
+background:
+"linear-gradient(135deg,#3B1F0B,#D4A373)",
+color:"white",
+fontWeight:"bold",
+cursor:"pointer",
+boxShadow:"0 10px 25px rgba(212,163,115,0.5)"
+}}
+>
+Explore More
+</button>
+</Link>
+
+</motion.div>
+
 </div>
 
-      {/* STATISTICS */}
+{/* WHY CHOOSE US */}
 
-      <div
-        style={{
-          padding: "100px 10%",
-          background: "#f8f9fa",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(220px,1fr))",
-            gap: "25px",
-          }}
-        >
-          
-          {[
-            { num: "25+", text: "Years Of Excellence" ,bg:"linear-gradient(135deg, #f6c2f3,skyblue 100%)"},
-            { num: "250+", text: "Menu Options",bg:"linear-gradient(135deg, white 0%, orange 100%)" },
-            { num: "340+", text: "Staff Members" ,bg:"linear-gradient(135deg, skyblue 0%, #b6cf6a 100%)"},
-            { num: "125K+", text: "Happy Foodies" ,bg:"linear-gradient(135deg,  #d7e6ff 0%,violet 100%)"},
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{
-                opacity: 0,
-                y: -100,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.2,
-              }}
-              whileHover={{
-                y: -10,
-              }}
-              style={{
-                background:item.bg,border:"1px solid skyblue",
-                color: "#fff",position:"relative", overflow:"hidden",boxShadow:"0 5px 15px brown",
-                textAlign: "center",
-                padding: "40px 20px",
-                borderRadius: "20px",
-              }}
-            > 
-             
-              <h1>{item.num}</h1>
-              <p>{item.text}</p>
-            </motion.div>
-          ))}
-        </div> 
-      </div>
+<div
+style={{
+padding:"80px 8%",
+background:"#FFF8E7",
+textAlign:"center"
+}}
+>
 
-      {/* CTA */}
-{/* 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        style={{
-          margin: "100px 10%",
-          padding: "70px",
-          textAlign: "center",
-          borderRadius: "30px",
-          background:
-            "linear-gradient(135deg,#ff6b35,#ffd700)",
-          color: "#fff",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "45px",
-          }}
-        >
-          Ready To Make Your Event Memorable?
-        </h2>
+<motion.h2
+initial={{opacity:0,y:50}}
+whileInView={{opacity:1,y:0}}
+transition={{duration:0.8}}
+style={{
+fontSize:"clamp(35px,5vw,50px)",
+fontFamily:"Playfair Display",
+color:"#3B1F0B"
+}}
+>
+Why Choose Royal Feast?
+</motion.h2>
 
-        <p
-          style={{
-            marginTop: "15px",
-          }}
-        >
-          Book Venus Catering For Weddings,
-          Receptions, Corporate Events And More.
-        </p>
 
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-          }}
-          whileTap={{
-            scale: 0.95,
-          }}
-          style={{
-            marginTop: "25px",
-            padding: "14px 30px",
-            border: "none",
-            borderRadius: "30px",
-            fontWeight: "bold",
-            cursor: "pointer",
-          }}
-        >
-          Book Now
-        </motion.button>
-      </motion.div> */}
-    </>
-  );
+<p
+style={{
+color:"#777",
+marginTop:"15px",
+fontFamily:"Poppins"
+}}
+>
+We deliver delicious food with elegant service
+and unforgettable experiences.
+</p>
+
+
+<div
+style={{
+display:"grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(220px,1fr))",
+gap:"30px",
+marginTop:"50px"
+}}
+>
+
+
+{[
+{
+icon:"🍽️",
+title:"Premium Food Quality",
+text:"Fresh ingredients and authentic flavours"
+},
+
+{
+icon:"👨‍🍳",
+title:"Expert Chefs",
+text:"Experienced team creating amazing dishes"
+},
+
+{
+icon:"🎉",
+title:"Perfect Events",
+text:"Wedding, corporate and special occasions"
+},
+
+{
+icon:"⭐",
+title:"Trusted Service",
+text:"Thousands of happy customers"
 }
 
+].map((item,index)=>(
+
+
+<motion.div
+key={index}
+initial={{
+opacity:0,
+y:80
+}}
+whileInView={{
+opacity:1,
+y:0
+}}
+transition={{
+duration:0.6,
+delay:index*0.2
+}}
+
+whileHover={{
+y:-10,
+scale:1.03
+}}
+
+style={{
+padding:"35px 20px",
+borderRadius:"25px",
+background:
+"linear-gradient(145deg,#ffffff,#f5e6c8)",
+boxShadow:
+"0 10px 30px rgba(0,0,0,0.12)"
+}}
+>
+
+
+<div
+style={{
+fontSize:"45px"
+}}
+>
+{item.icon}
+</div>
+
+
+<h3
+style={{
+marginTop:"15px",
+color:"#3B1F0B",
+fontFamily:"Playfair Display"
+}}
+>
+{item.title}
+</h3>
+
+
+<p
+style={{
+color:"#666",
+marginTop:"10px"
+}}
+>
+{item.text}
+</p>
+
+
+</motion.div>
+
+
+))}
+
+</div>
+
+</div>
+
+{/* OUR JOURNEY */}
+
+<div
+style={{
+padding:"100px 8%",
+background:"white",
+}}
+>
+
+
+<motion.div
+initial={{opacity:0,y:50}}
+whileInView={{opacity:1,y:0}}
+transition={{duration:0.8}}
+style={{
+textAlign:"center"
+}}
+>
+
+<p
+style={{
+color:"#D4A373",
+letterSpacing:"3px",
+fontWeight:"bold"
+}}
+>
+OUR JOURNEY
+</p>
+
+
+<h2
+style={{
+fontSize:"clamp(35px,5vw,50px)",
+fontFamily:"Playfair Display",
+color:"#3B1F0B"
+}}
+>
+Years Of Passion & Excellence
+</h2>
+
+</motion.div>
+
+
+
+<div
+style={{
+marginTop:"60px",
+display:"grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(250px,1fr))",
+gap:"30px"
+}}
+>
+
+
+{[
+{
+year:"2001",
+title:"Started Our Journey",
+text:"A small dream to serve delicious food became a premium catering brand."
+},
+
+{
+year:"2010",
+title:"Expanded Services",
+text:"Successfully handled weddings, celebrations and corporate events."
+},
+
+{
+year:"2020",
+title:"Modern Catering",
+text:"Introduced creative menus with professional event management."
+},
+
+{
+year:"2026",
+title:"Royal Feast Today",
+text:"Delivering unforgettable food experiences for thousands of guests."
+}
+
+].map((item,index)=>(
+
+
+<motion.div
+key={index}
+
+initial={{
+opacity:0,
+scale:0.8
+}}
+
+whileInView={{
+opacity:1,
+scale:1
+}}
+
+transition={{
+duration:0.6,
+delay:index*0.2
+}}
+
+whileHover={{
+y:-10
+}}
+
+style={{
+padding:"35px",
+borderRadius:"25px",
+background:
+"linear-gradient(135deg,#3B1F0B,#D4A373)",
+color:"white",
+textAlign:"center",
+boxShadow:
+"0 15px 35px rgba(0,0,0,0.15)"
+}}
+>
+
+
+<h1
+style={{
+fontSize:"45px",
+fontFamily:"Playfair Display"
+}}
+>
+{item.year}
+</h1>
+
+
+<h3>
+{item.title}
+</h3>
+
+
+<p
+style={{
+marginTop:"15px",
+lineHeight:"1.8"
+}}
+>
+{item.text}
+</p>
+
+
+</motion.div>
+
+
+))}
+
+
+</div>
+
+</div>
+
+{/* TEAM SECTION */}
+
+<div
+style={{
+padding:"100px 8%",
+background:"#FFF8E7",
+textAlign:"center"
+}}
+>
+
+
+<motion.h2
+initial={{opacity:0,y:50}}
+whileInView={{opacity:1,y:0}}
+transition={{duration:0.8}}
+style={{
+fontSize:"clamp(35px,5vw,50px)",
+fontFamily:"Playfair Display",
+color:"#3B1F0B"
+}}
+>
+Meet Our Expert Team
+</motion.h2>
+
+
+<p
+style={{
+color:"#777",
+marginTop:"15px"
+}}
+>
+The passionate people behind our delicious experiences
+</p>
+
+
+
+<div
+style={{
+display:"grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(250px,1fr))",
+gap:"35px",
+marginTop:"50px"
+}}
+>
+
+
+{[
+{
+name:"Rajesh Kumar",
+role:"Founder & CEO",
+img:"/founder.png"
+},
+{
+name:"Priya Sharma",
+role:"Head Chef",
+img:"/headchef.png"
+},
+{
+name:"Arun Nair",
+role:"Event Manager",
+img:"/operation.png"
+}
+
+].map((member,index)=>(
+
+
+<motion.div
+
+key={index}
+
+initial={{
+opacity:0,
+y:80
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+transition={{
+duration:0.7,
+delay:index*0.2
+}}
+
+whileHover={{
+y:-15
+}}
+
+style={{
+background:"white",
+padding:"35px 20px",
+borderRadius:"30px",
+boxShadow:
+"0 15px 35px rgba(0,0,0,0.12)"
+}}
+>
+
+
+<img
+src={member.img}
+alt=""
+style={{
+width:"130px",
+height:"130px",
+borderRadius:"50%",
+objectFit:"cover",
+border:
+"5px solid #D4A373"
+}}
+/>
+
+
+<h3
+style={{
+marginTop:"20px",
+fontFamily:"Playfair Display",
+color:"#3B1F0B"
+}}
+>
+{member.name}
+</h3>
+
+
+<p
+style={{
+color:"#D4A373",
+fontWeight:"bold"
+}}
+>
+{member.role}
+</p>
+
+
+</motion.div>
+
+
+))}
+
+
+</div>
+
+
+</div>
+
+{/* STATISTICS */}
+
+<div
+style={{
+padding:"90px 8%",
+background:
+"linear-gradient(135deg,#3B1F0B,#D4A373)",
+}}
+>
+
+
+<div
+style={{
+display:"grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(220px,1fr))",
+gap:"30px"
+}}
+>
+
+
+{[
+{
+number:"25+",
+title:"Years Of Excellence"
+},
+
+{
+number:"250+",
+title:"Menu Varieties"
+},
+
+{
+number:"500+",
+title:"Events Completed"
+},
+
+{
+number:"100K+",
+title:"Happy Customers"
+}
+
+].map((item,index)=>(
+
+
+<motion.div
+
+key={index}
+
+initial={{
+opacity:0,
+y:60
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+transition={{
+duration:0.7,
+delay:index*0.2
+}}
+
+whileHover={{
+scale:1.05
+}}
+
+style={{
+background:
+"rgba(255,255,255,0.15)",
+backdropFilter:"blur(10px)",
+borderRadius:"25px",
+padding:"40px 20px",
+textAlign:"center",
+color:"white",
+border:
+"1px solid rgba(255,255,255,0.3)"
+}}
+
+>
+
+
+<h1
+style={{
+fontSize:"50px",
+fontFamily:"Playfair Display"
+}}
+>
+{item.number}
+</h1>
+
+
+<p
+style={{
+fontSize:"18px",
+fontWeight:"600"
+}}
+>
+{item.title}
+</p>
+
+
+</motion.div>
+
+
+))}
+
+
+</div>
+
+
+</div>
+
+{/* CTA SECTION */}
+
+<motion.div
+
+initial={{
+opacity:0,
+scale:0.9
+}}
+
+whileInView={{
+opacity:1,
+scale:1
+}}
+
+transition={{
+duration:0.8
+}}
+
+style={{
+margin:"100px 8%",
+padding:"70px 30px",
+borderRadius:"35px",
+textAlign:"center",
+background:
+"linear-gradient(135deg,#D4A373,#3B1F0B)",
+color:"white",
+boxShadow:
+"0 20px 50px rgba(0,0,0,0.2)"
+}}
+
+>
+
+
+<h2
+style={{
+fontSize:"clamp(30px,5vw,50px)",
+fontFamily:"Playfair Display"
+}}
+>
+Ready To Make Your Event Special?
+</h2>
+
+
+<p
+style={{
+marginTop:"20px",
+fontSize:"18px",
+lineHeight:"1.8"
+}}
+>
+From weddings to celebrations,
+Royal Feast creates unforgettable
+food experiences for your special moments.
+</p>
+
+
+<Link to ="/contact">
+<motion.button
+
+whileHover={{
+scale:1.1
+}}
+
+whileTap={{
+scale:0.95
+}}
+
+style={{
+marginTop:"30px",
+padding:"15px 40px",
+borderRadius:"30px",
+border:"none",
+background:"white",
+color:"#3B1F0B",
+fontWeight:"bold",
+fontSize:"16px",
+cursor:"pointer"
+}}
+>
+Contact details
+
+</motion.button>
+</Link>
+
+</motion.div>
+</>
+)
+}
 export default About;

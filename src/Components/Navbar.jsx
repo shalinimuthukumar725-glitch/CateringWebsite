@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Box ,Dialog,DialogContent} from "@mui/material";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -19,6 +19,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
+  // const[menu,setMenu]=useState(false);
 
   return (
 
@@ -26,9 +27,9 @@ function Navbar() {
     <AppBar
       position="sticky"
       sx={{
-        background:
-          "white",
-        boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+        background:"rgba(255,255,255,0.1)",backdropFilter:"blur(10px)",WebkitBackdropFilter:"blur(10px)",
+        border:"1px solid rgba(255,255,255,0.2)",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
       }}
     >
       <Toolbar
@@ -87,7 +88,7 @@ function Navbar() {
             { name: "Services", path: "/services" },
             { name: "Gallery", path: "/gallery" },
             { name: "Contact", path: "/Contact" },
-            { name: "Menu",  path:"/menu"}
+            { name: "Menu",  path :"/menu"}
           ].map((item) => (
             <motion.div
               key={item.name}
@@ -97,9 +98,15 @@ function Navbar() {
               }}
             >
               <Button
-                onClick={() => navigate(item.path)}
+                onClick={() =>{
+                //   if(item.action ==="menu"){
+                //     setMenu(true);
+                //   }else{
+                // }
+                   navigate(item.path)}
+              }
                 sx={{
-                  color: "purple",
+                  color: "black",
                   fontWeight: 600,
                   borderRadius: "25px",
                   px: 2,
@@ -128,7 +135,9 @@ function Navbar() {
       width: 250,
       height:"100%",
       p: 2,
-      background:"linear-gradient(290deg, #e4729f,grey)"
+      background:"rgba(255,255,255,0.1)",backdropFilter:"blur(10px)",WebkitBackdropFilter:"blur(10px)",
+        border:"1px solid rgba(255,255,255,0.2)",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
     }}
   >
     <IconButton
@@ -138,12 +147,12 @@ function Navbar() {
     </IconButton>
 
     {[
-      { name: "Home", path: "/",icon:<Home style={{color:"skyblue"}}/> },
-      { name: "About", path: "/about" ,icon:<Info style={{color:"pink"}}/>},
-      { name: "Services", path: "/services" ,icon:<RoomService style={{color:"skyblue"}}/>},
-      { name: "Gallery", path: "/gallery",icon:<PhotoLibrary style={{color:"pink"}}/> },
-      { name: "Contact", path: "/contact",icon:<ContactMail style={{color:"skyblue"}}/> },
-      { name: "Menu", path: "/menu" ,icon:<RestaurantMenu style={{color:"pink"}}/>},
+      { name: "Home", path: "/",icon:<Home style={{color:"purple"}}/> },
+      { name: "About", path: "/about" ,icon:<Info style={{color:"purple"}}/>},
+      { name: "Services", path: "/services" ,icon:<RoomService style={{color:"purple"}}/>},
+      { name: "Gallery", path: "/gallery",icon:<PhotoLibrary style={{color:"purple"}}/> },
+      { name: "Contact", path: "/contact",icon:<ContactMail style={{color:"purple"}}/> },
+      { name: "Menu", path: "/menu" ,icon:<RestaurantMenu style={{color:"purple"}}/>},
     ].map((item) => (
       <Button
       startIcon={item.icon}
@@ -152,7 +161,7 @@ function Navbar() {
         sx={{
           my: 1,
           justifyContent: "flex-start",
-          color:"white",
+          color:"black",textTransform:"none",
           fontFamily:"fangsong",fontSize:15,fontWeight:"bold",letterSpacing:1
         }}
         onClick={() => {
@@ -165,6 +174,7 @@ function Navbar() {
     ))}
   </Box>
 </Drawer>
+
 </>
   );
 }

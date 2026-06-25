@@ -1,7 +1,8 @@
-import { Box, Typography, Button, Container ,Grid,Paper,Dialog,DialogContent,DialogTitle,TextField} from "@mui/material";
+import { Box, Typography, Button, Container ,Grid,Paper,Dialog,DialogContent,DialogTitle,
+  IconButton,TextField,MenuItem,Snackbar,Alert} from "@mui/material";
 import { motion } from "framer-motion";
 import { linearGradient } from "framer-motion/client";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone ,X} from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -40,6 +41,7 @@ Location: ${formData.location}`;
   return (
     <>
       {/* Hero Section */}
+      <Box sx={{overflowX:"hidden",}}>
       <Box
         sx={{
           height: "50vh",
@@ -51,6 +53,7 @@ Location: ${formData.location}`;
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
+         
         }}
       >
         {/* Overlay */}
@@ -67,12 +70,12 @@ Location: ${formData.location}`;
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 ,color:["#fff","#25e7d8"],textShadow:"0 0 5px gold "}}
                   transition={{opacity:{ duration: 0.8 },y:{duration:0.8},color:{duration:4,repeat:Infinity},}}
-                  style={{ fontSize: "60px", fontWeight: "bold" }}
+                  style={{ fontSize: {md:"60px"}, fontWeight: "bold" }}
                 >
                   Contact
                 </motion.h1>
        </Box>
-        <Container sx={{ position: "relative", zIndex: 2  }}>
+        <Container sx={{ position: "relative", zIndex: 2 , }}>
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,7 +92,7 @@ Location: ${formData.location}`;
                 textAlign:"left",p:2
               }}
             >
-              Hello Families 👋
+              Hello Everyone👋
             </Typography>
 
             <Typography
@@ -99,7 +102,7 @@ Location: ${formData.location}`;
                 fontSize: { xs: "1.3rem", md: "2rem" },
                 lineHeight: {md:1.4},
                 mb: 3,
-                ml:10
+                // ml:10
               }}
             >
               Crafting Memorable Feasts 
@@ -116,7 +119,7 @@ Location: ${formData.location}`;
                 lineHeight: 2.2,
                 fontSize: "1rem",
                 mb: 4,
-                ml:10
+                // ml:10
               }}
             >
               At Royal Feast Catering, every dish is prepared with
@@ -139,8 +142,8 @@ Location: ${formData.location}`;
                 size="large"
                 onClick={()=>setOpen(true)}
                 sx={{
-                  px: 5,
-                  py: 1.8,
+                  px: {md:5},
+                  py: {md:1.8},
                   borderRadius: "40px",
                   fontWeight: 700,
                   fontSize: "1rem",
@@ -162,14 +165,34 @@ Location: ${formData.location}`;
   maxWidth="sm"
   fullWidth
 >
-  <DialogTitle>Book Your Event</DialogTitle>
+  <DialogTitle>Book Your Event
+   <X
+    size={25}
+    style={{cursor:"pointer",position:"absolute",right:"12px",top:"6%",transform:"translateY(-50%)",}}
+    onClick={()=>setOpen(false)}
+   />
+
+  </DialogTitle>
 
   <DialogContent>
     <TextField label="Name" name="name" fullWidth margin="normal" onChange={handleChange} />
 
     <TextField label="Phone Number" name="phone" fullWidth margin="normal" onChange={handleChange} />
 
-    <TextField label="Event Type" name="eventType" fullWidth margin="normal" onChange={handleChange} />
+    <TextField select label="Event Type" name="eventType" fullWidth margin="normal" value={formData.eventType} onChange={handleChange}>
+      <MenuItem value="wedding">wedding</MenuItem>
+      <MenuItem value="60th wedding">60th wedding</MenuItem>
+      <MenuItem value="70th wedding">70th wedding</MenuItem>
+      <MenuItem value="80th wedding">80th wedding</MenuItem>
+      <MenuItem value="mehandi">Mehandi</MenuItem>
+      <MenuItem value="Engagement">Engagement</MenuItem>
+      <MenuItem value="Birthday">Birthday Function</MenuItem>
+      <MenuItem value="HouseWarming">House Warming</MenuItem>
+      <MenuItem value="Graduation">Graduation Event</MenuItem>
+      <MenuItem value="Seemantham">Seemantham</MenuItem>
+      <MenuItem value="Corporate Events">Corporate Event</MenuItem>
+      <MenuItem value="Retirement">Retirement Ceremony</MenuItem>
+      </TextField>
 
     <TextField label="Number of Guests" name="guests" fullWidth margin="normal" onChange={handleChange} />
 
@@ -205,202 +228,311 @@ Location: ${formData.location}`;
 
 
         {/* Contact Details Section */}
+
+
 <Box
-  sx={{
-    py: 10,
-    // background: "linear-gradient(to bottom,#fff,#fff8e7)",
-  }}
+sx={{
+py:10,
+background:"linear-gradient(135deg,#fff8f2,#fff0f7)"
+}}
 >
-  <Container maxWidth="lg">
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
-      <Typography
-        variant="h3"
-        textAlign="center"
-        sx={{
-          fontWeight: 800,
-          color:["#e90000", "violet"],textShadow:"0 0 5px gold",
-          mb: 2,
-        }}
-      >
-        Get In Touch
-      </Typography>
 
-      <Typography
-        textAlign="center"
-        sx={{
-          color: "black",
-          mb: 6,
-        //   maxWidth: "700px",
-          mx: "auto",
-          fontSize:{md:20},
-          lineHeight:1.8
-        }}
-      >
-        We'd love to hear about your event and help create a
-        memorable dining experience for you and your guests.
-         Our experienced team
-prepares every dish with premium ingredients and authentic
-flavors to delight your guests. Let us take care of the feast
-while you enjoy every special moment with your family and friends.
-      </Typography>
+<Container maxWidth="lg">
 
-      <Grid container spacing={4} justifyContent="center">
-        {/* Address */}
-        <Grid item xs={12} md={4}>
-          <motion.div
-            whileHover={{
-              y: -10,
-              scale: 1.03,
-              
-            }}
-          >
-            <Paper
-              elevation={6}
-              sx={{
-                p: 4,
-                textAlign: "center",
-                borderRadius: "25px",
-                background:"linear-gradient(135deg,pink,skyblue)"
-              }}
-            >
-              <MapPin
-                size={45}
-                color="gold"
-                style={{
-                  filter:
-                    "drop-shadow(0 0 8px rgba(255,140,0,0.5))",
-                }}
-              />
+<motion.div
+initial={{opacity:0,y:50}}
+whileInView={{opacity:1,y:0}}
+transition={{duration:0.8}}
+viewport={{once:true}}
+>
 
-              <Typography
-                variant="h6"
-                fontWeight={700}
-                mt={2}
-                mb={1}
-                sx={{color:"white",fontFamily:"'poppins',sans-serif",fontWeight:"bold"}}
-              >
-                Address
-              </Typography>
 
-              <Typography sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:["pink","blue"],fontWeight:600}}>
-                Royal Feast Catering
-                <br />
-                Chennai, Tamil Nadu
-              </Typography>
-            </Paper>
-          </motion.div>
-        </Grid>
+<Typography
+variant="h3"
+textAlign="center"
+sx={{
+fontWeight:900,
+color:"#c2185b",
+textShadow:"0 0 10px #ffd700",
+mb:2,
+fontFamily:"Poppins",
+fontSize:{xs:"35px",md:"48px"}
+}}
+>
+Get In Touch
+</Typography>
 
-        {/* Email */}
-        <Grid item xs={12} md={4}>
-          <motion.div
-            whileHover={{
-              y: -10,
-              scale: 1.03,
-            }}
-          >
-            <Paper
-              elevation={6}
-              sx={{
-                p: 4,
-                textAlign: "center",
-                borderRadius: "25px",
-            background:"linear-gradient(135deg,skyblue,pink)"
-              }}
-            >
-              <Mail
-                size={45}
-                color="yellow"
-                style={{
-                  filter:
-                    "drop-shadow(0 0 8px rgba(255,140,0,0.5))",
-                }}
-              />
 
-              <Typography
-                variant="h6"
-                fontWeight={700}
-                mt={2}
-                mb={1}
-                sx={{color:"white",fontFamily:"'poppins',sans-serif",fontWeight:"bold"}}
-              >
-                Email
-              </Typography>
 
-              <Typography  
-              component="a"
-              href="mailto:shalinimuthukumar725@gmail.com"
-              sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:"blue",
-              textDecoration:"none",fontWeight:600,"&:hover":{color:"yellow"}}}>
-                shalinimuthukumar <br />725@gmail.com
-              </Typography>
-            </Paper>
-          </motion.div>
-        </Grid>
+<Typography
+textAlign="center"
+sx={{
+color:"#4a154b",
+mb:6,
+mx:"auto",
+fontSize:{xs:16,md:20},
+lineHeight:1.8,
+fontFamily:"Poppins",
+fontWeight:500
+}}
+>
 
-        {/* Phone */}
-        <Grid item xs={12} md={4}>
-          <motion.div
-            whileHover={{
-              y: -10,
-              scale: 1.03,
-            }}
-          >
-            <Paper
-              elevation={6}
-              sx={{
-                p: 4,
-                textAlign: "center",
-                borderRadius: "25px",
-                // background:"linear-gradient( #ffbf6d, #f02167, #871080)"
-                background:"linear-gradient(135deg,pink,skyblue)"
-              }}
-            >
-              <motion.div
-                animate={{
-                  rotate: [0, 10, -10, 0],
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 2,
-                }}
-              >
-                <Phone
-                  size={45}
-                  color="yellow"
-                  style={{
-                    filter:
-                      "drop-shadow(0 0 8px rgba(255,140,0,0.5))",
-                  }}
-                />
-              </motion.div>
+We'd love to hear about your event and help create a memorable dining experience for you and your guests. Our experienced team prepares every dish with premium ingredients and authentic flavors to delight your guests. Let us take care of the feast while you enjoy every special moment with your family and friends.
 
-              <Typography
-                variant="h6"
-                fontWeight={700}
-                mt={2}
-                mb={1}
-                sx={{color:"white",fontFamily:"'poppins',sans-serif",fontWeight:"bold"}}
-              >
-                Contact
-              </Typography>
+</Typography>
 
-              <Typography sx={{fontFamily:"'poppins',sans-serif",lineHeight:1.8,letterSpacing:0.3,color:"blue",fontWeight:600}}>
-                +91 98765 43210
-                <br />
-                +91 91234 56789
-              </Typography>
-            </Paper>
-          </motion.div>
-        </Grid>
-      </Grid>
-    </motion.div>
-  </Container>
+
+
+
+
+<Box
+sx={{
+display:"grid",
+gridTemplateColumns:{
+xs:"1fr",
+md:"repeat(3,1fr)"
+},
+gap:4
+}}
+>
+
+
+
+{/* Address */}
+
+<motion.div
+whileHover={{
+y:-12,
+scale:1.04
+}}
+transition={{type:"spring",stiffness:250}}
+>
+
+<Paper
+elevation={8}
+sx={{
+p:4,
+textAlign:"center",
+borderRadius:"30px",
+background:
+"linear-gradient(135deg,#ffd6e8,#dff7ff)",
+}}
+>
+
+
+<MapPin
+size={45}
+color="#c2185b"
+/>
+
+
+<Typography
+mt={2}
+fontWeight={800}
+sx={{
+color:"#7b1fa2",
+fontFamily:"Poppins"
+}}
+>
+Address
+</Typography>
+
+
+<Typography
+sx={{
+mt:1,
+color:"#561139",
+fontWeight:600,
+lineHeight:1.8,
+fontFamily:"Poppins"
+}}
+>
+Royal Feast Catering
+<br/>
+Chennai, Tamil Nadu
+</Typography>
+
+
+</Paper>
+
+</motion.div>
+
+
+
+
+
+
+{/* Email */}
+
+
+<motion.div
+whileHover={{
+y:-12,
+scale:1.04
+}}
+transition={{type:"spring",stiffness:250}}
+>
+
+
+<Paper
+elevation={8}
+sx={{
+p:4,
+textAlign:"center",
+borderRadius:"30px",
+background:
+"linear-gradient(135deg,#dff7ff,#ffd6e8)",
+}}
+>
+
+
+<Mail
+size={45}
+color="#e91e63"
+/>
+
+
+<Typography
+mt={2}
+fontWeight={800}
+sx={{
+color:"#7b1fa2",
+fontFamily:"Poppins"
+}}
+>
+Email
+</Typography>
+
+
+
+<Typography
+component="a"
+href="mailto:shalinimuthukumar725@gmail.com"
+sx={{
+display:"block",
+mt:1,
+color:"#561139",
+fontWeight:600,
+textDecoration:"none",
+fontFamily:"Poppins",
+"&:hover":{
+color:"#e91e63"
+}
+}}
+>
+shalinimuthukumar
+<br/>
+725@gmail.com
+</Typography>
+
+
+
+</Paper>
+
+
+</motion.div>
+
+
+
+
+
+
+{/* Phone */}
+
+
+<motion.div
+
+whileHover={{
+y:-12,
+scale:1.04
+}}
+
+transition={{
+type:"spring",
+stiffness:250
+}}
+
+>
+
+
+<Paper
+elevation={8}
+sx={{
+p:4,
+textAlign:"center",
+borderRadius:"30px",
+background:
+"linear-gradient(135deg,#ffd6e8,#dff7ff)",
+}}
+>
+
+
+<motion.div
+
+animate={{
+rotate:[0,10,-10,0]
+}}
+
+transition={{
+duration:2,
+repeat:Infinity
+}}
+
+>
+
+<Phone
+size={45}
+color="#e91e63"
+/>
+
+</motion.div>
+
+
+
+
+<Typography
+mt={2}
+fontWeight={800}
+sx={{
+color:"#7b1fa2",
+fontFamily:"Poppins"
+}}
+>
+Contact
+</Typography>
+
+
+
+<Typography
+sx={{
+mt:1,
+color:"#561139",
+fontWeight:600,
+lineHeight:1.8,
+fontFamily:"Poppins"
+}}
+>
++91 98765 43210
+<br/>
++91 91234 56789
+</Typography>
+
+
+</Paper>
+
+
+</motion.div>
+
+
+
+</Box>
+
+
+</motion.div>
+
+</Container>
+
+</Box>
 </Box>
     </>
   );

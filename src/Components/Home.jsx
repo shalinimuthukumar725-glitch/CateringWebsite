@@ -1,680 +1,1239 @@
-import React from "react";
+ import React, {useState} from "react";
+
 import {
-  Box,
-  Button,
-  Container,Avatar,IconButton,
-  Typography,
+Box,
+Button,
+Typography
 } from "@mui/material";
-import { Navigate, Link } from "react-router-dom";
-import { Heart ,BriefcaseBusiness } from "lucide-react";
-import { motion ,AnimatePresence, transform} from "framer-motion";
-import { useEffect,useState } from "react";
-import { ChevronRight,ChevronLeft} from "@mui/icons-material";
-import  StarIcon from "@mui/icons-material/Star";
+
+import {
+Heart,
+BriefcaseBusiness
+} from "lucide-react";
+
+import {
+motion,
+AnimatePresence
+} from "framer-motion";
+
+import {
+Link
+} from "react-router-dom";
+
+import StarIcon from "@mui/icons-material/Star";
+
 
 function Home(){
 
-  const services = [
-    {
-      title: "Wedding Catering",
-            desc: `Elegant wedding menus with traditional & modern dishes.
-            Make your wedding celebration truly unforgettable with our premium catering services.`,
-            img: "/rice.png",
-            icon:
-             (<motion.div
-                  animate={{scale:[1,1.1,1]}}
-                  transition={{duration:1.5,
-                  repeat:Infinity}}>
-            <Heart fill="currentColor"  style={{color:"red",filter:"drop-shadow(2px 2px 5px pink)"}}/> 
-            </motion.div>
-                  ),
-    },
-    {
-       title: "Corporate Events",
-            desc: `From board meetings and conferences to annual celebrations and team gatherings, 
-            we deliver premium catering solutions tailored to your corporate needs.`,
-            img: "/food.png",
-            icon:
-             (<motion.div
-                  animate={{scale:[1,1.1,1]}}
-                  transition={{duration:1.5,
-                  repeat:Infinity}}>
-            <BriefcaseBusiness style={{filter:"drop-shadow(2px 2px 5px brown)"}}/>
-             </motion.div>
-                  ),
-    },
-   
-  ];  
-  const[current,setCurrent]=useState(0);
-  const reviews = [
-  {
-    name: "Arun Kumar",
-    rating:5,
-    review:
-      "Amazing catering service. Food quality and presentation were outstanding.",
-  },
 
-  {
-    name: "Priya",
-    rating:5,
-    review:
-      "Guests loved every dish. Professional team and timely service.",
-  },
+const services=[
 
-  {
-    name: "Vignesh",
-    rating:4,
-    review:
-      "Excellent experience. Highly recommended for weddings.",
-  },
+{
+title:"Wedding Catering",
 
-  {
-    name: "Karthik",
-    rating:5,
-    review:
-      "Very hygienic and tasty food. Everyone appreciated it.",
-  },
+desc:
+"Elegant wedding menus with traditional and modern dishes. Make your wedding celebration truly unforgettable.",
 
-  {
-    name: "Divya",
-    rating:5,
-    review:
-      "Beautiful setup and delicious menu. Worth every penny.",
-  },
-];
-  
+img:"/rice.png",
 
- 
-    
-  return (
-    <>
-         <Box
-  sx={{
-    position: "relative",
-    height: "90vh",
-    backgroundImage:
-      " url('/banner.png')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    overflow: "hidden",
-  }}
+icon:
+
+<motion.div
+animate={{
+scale:[1,1.1,1]
+}}
+transition={{
+duration:1.5,
+repeat:Infinity
+}}
 >
-  {/* Floating Glow */}
-  <motion.div
-    animate={{
-      y: [0, -30, 0],
-      opacity: [0.3, 0.8, 0.3],
-    }}
-    transition={{
-      duration: 5,
-      repeat: Infinity,
-    }}
-    style={{
-      position: "absolute",
-      width: "300px",
-      height: "300px",
-      borderRadius: "50%",
-      background: "#ff4fa3",
-      filter: "blur(120px)",
-      top: "10%",
-      left: "5%",
-    }}
-  />
 
-  {/* Content */}
-  <Box
-    sx={{
-      position: "absolute",
-      top: "46%",
-      left: { xs: "5%", md: "8%" },
-      transform: "translateY(-50%)",
-      maxWidth: "650px",
-      zIndex: 2,
-    }}
-  >
-    {/* Subtitle */}
-    <motion.p
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      style={{
-        color: "#FFD700",
-        fontWeight: "bold",
-        letterSpacing: "4px",
-        textTransform: "uppercase",
-        fontSize: "18px",
-      }}
-    >
-      Premium Catering Service
-    </motion.p>
+<Heart
+fill="red"
+color="red"
+/>
 
-    {/* Heading */}
-    <motion.h1
-      initial={{ opacity: 0, x: -100 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
-      style={{
-        fontSize: "clamp(3rem, 6vw, 3rem)",
-        color: "#fff",
-        lineHeight: "1.1",
-        margin: "10px 0",
-        fontWeight: "bold",
-      }}
-    >
-      Delicious Moments
-      <br />
-      <span style={{ color: "#ff4fa3" }}>
-        Made Memorable
-      </span>
-    </motion.h1>
+</motion.div>
 
-    {/* Description */}
-    <motion.p
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.8 }}
-      style={{
-        color: "#f5f5f5",
-        fontSize: "1.2rem",
-        lineHeight: "1.8",
-        marginBottom: "30px",
-      }}
-    >
-      Experience authentic South Indian catering
-      crafted with tradition, quality and
-      unforgettable taste.
-    </motion.p>
+},
 
-    {/* Buttons */}
-    <Box sx={{ display: "flex", gap: 2 }}>
-      <motion.button
-        whileHover={{
-          scale: 1.08,
-          boxShadow: "0 0 25px #ff4fa3",
-        }}
-        whileTap={{ scale: 0.95 }}
-        style={{
-          padding: "14px 30px",
-          borderRadius: "30px",
-          border: "none",
-          background:
-            "linear-gradient(90deg,#ff4fa3,#ff8ad8)",
-          color: "#fff",
-          fontWeight: "bold",
-          cursor: "pointer",
-        }}
-      >
-        Explore More
-      </motion.button>
 
-      <motion.button
-        whileHover={{
-          scale: 1.08,
-          backgroundColor: "#fff",
-          color: "#000",
-        }}
-        style={{
-          padding: "14px 30px",
-          borderRadius: "30px",
-          border: "2px solid #fff",
-          background: "transparent",
-          color: "#fff",
-          fontWeight: "bold",
-          cursor: "pointer",
-        }}
-      >
-        Contact Us
-      </motion.button>
-    </Box>
+{
+title:"Corporate Events",
 
-    {/* Features */}
-    <Box
-      sx={{
-        display: "flex",
-        gap: 4,
-        mt: 5,
-        flexWrap: "wrap",
-      }}
-    >
-      {[
-        "Fresh Ingredients",
-        "Hygienic Food",
-        "On-Time Delivery",
-      ].map((item) => (
-        <motion.div
-          key={item}
-          whileHover={{ y: -5 }}
-        >
-          <Typography
-            sx={{
-              color: "#FFD700",
-              fontWeight: "bold",
-            }}
-          >
-            ✨ {item}
-          </Typography>
-        </motion.div>
-      ))}
-    </Box>
-  </Box>
+desc:
+"Premium catering solutions for meetings, conferences and celebrations.",
+
+img:"/food.png",
+
+icon:
+
+<motion.div
+
+animate={{
+scale:[1,1.1,1]
+}}
+
+transition={{
+duration:1.5,
+repeat:Infinity
+}}
+
+>
+
+<BriefcaseBusiness/>
+
+</motion.div>
+
+
+}
+
+];
+
+
+
+const reviews=[
+
+{
+name:"Arun Kumar",
+rating:5,
+review:"Amazing catering service. Food quality and presentation were outstanding."
+},
+
+{
+name:"Priya",
+rating:5,
+review:"Guests loved every dish. Professional team and timely service."
+},
+
+{
+name:"Vignesh",
+rating:4,
+review:"Excellent experience. Highly recommended."
+}
+
+
+];
+
+
+
+const[current,setCurrent]=useState(0);
+
+
+
+return(
+
+<>
+
+
+{/* HERO VIDEO */}
+
+
+<Box
+
+sx={{
+
+height:{
+xs:"75vh",
+md:"90vh"
+},
+
+position:"relative",
+
+overflow:"hidden"
+
+}}
+
+>
+
+
+<Box
+
+component="video"
+
+src="/cooking.mp4"
+
+autoPlay
+
+loop
+
+muted
+
+
+sx={{
+
+position:"absolute",
+
+width:"100%",
+
+height:"100%",
+
+objectFit:"cover",
+
+opacity:0.65
+
+}}
+
+
+/>
+
+
+
+<Box
+
+sx={{
+
+position:"absolute",
+
+top:"50%",
+
+left:"50%",
+
+transform:"translate(-50%,-50%)",
+
+textAlign:"center",
+
+width:"90%"
+
+}}
+
+>
+
+
+<motion.div
+
+initial={{
+opacity:0,
+y:60
+}}
+
+animate={{
+opacity:1,
+y:0
+}}
+
+transition={{
+duration:1
+}}
+
+>
+
+
+<Typography
+
+sx={{
+
+fontFamily:"Poppins",
+
+fontSize:{
+xs:"35px",
+md:"65px"
+},
+
+fontWeight:800,
+
+color:"#fff",
+
+textShadow:
+"0 5px 20px black"
+
+}}
+
+>
+
+Every Bite Creates
+
+<br/>
+
+<span
+
+style={{
+
+color:"#ffd166"
+
+}}
+
+>
+
+Beautiful Memories
+
+</span>
+
+
+</Typography>
+
+
+
+<Typography
+
+sx={{
+
+mt:3,
+
+color:"#fff",
+
+fontSize:{
+xs:"16px",
+md:"22px"
+},
+
+fontFamily:"Poppins"
+
+}}
+
+>
+
+Premium Catering Experience
+<br/>
+
+crafted with love, taste and tradition
+
+</Typography>
+
+
+
+<Link to="/Services">
+
+
+<Button
+
+sx={{
+
+mt:4,
+
+px:5,
+
+py:1.5,
+
+borderRadius:"30px",
+
+background:
+"linear-gradient(45deg,#d4a373,#8d5524)",
+
+color:"#fff",
+
+fontWeight:700
+
+}}
+
+>
+
+Explore Menu
+
+</Button>
+
+
+</Link>
+
+
+</motion.div>
+
+
 </Box>
 
-      {/* Floating Gold Circle */}
-      {/* <motion.div
-        animate={{
-          y: [0, -40, 0],
-          x: [0, 20, 0],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 6,
-        }}
-        style={{
-          width: 50,
-          height: 50,
-          borderRadius: "50%",
-          background: "linear-gradient( brown,grey)",
-          boxShadow:"5px 5px 20px gold",
-          position: "absolute",
-          top: "10%",
-          right: "-80px",
-        }}
-      /> */}
 
-      {/* <motion.div
-        animate={{
-          y: [0, 30, 0],
-        }}
-        transition={{
-          repeat: Infinity,
-          duration: 5,
-        }}
-        style={{
-          width: 180,
-          height: 180,
-          borderRadius: "50%",
-          background: "linear-gradient(brown,purple,grey)",
-          boxShadow:"5px 5px 20px violet",
-          position: "absolute",
-          bottom: "10%",
-          left: "-60px",
-        }}
-      /> */}     
+</Box>
 
-    <div
-            style={{
-              padding: "80px 10%",
-              // height:{md:100,xs:20},
-              textAlign: "center",
-            }}
-          >
-            <motion.h2
-              initial={{ opacity: 0, y: -50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              style={{
-                fontSize: "45px",
-                color: "brown",
-                textShadow:"0 0 5px grey",
-                   animation: "floatText 3s ease-in-out infinite",
+{/* // ABOUT SECTION */}
 
-  "@keyframes floatText" : {
-  "0%":{
-    transform: "translateY(0px)",
-  },
-  "50%":{
-    transform:"translateY(-10px)",
-  },
-  "100%" : {
-     transform: "translateY(0px)",
-  },
+
+<Box
+
+sx={{
+
+py:{xs:5,md:8},
+
+px:{xs:2,md:10},
+
+display:"flex",
+
+alignItems:"center",
+
+gap:5,
+
+flexDirection:{
+xs:"column",
+md:"row"
 },
-              }}
-            >
-              Why Choose Royal Feast Catering
-            </motion.h2>
-    
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns:
-                  "repeat(auto-fit,minmax(250px,1fr))",
-                gap: "25px",
-                marginTop: "50px",
-                
-              }}
-            >
-              {[
-      {
-        title: "Fresh Ingredients",
-        img: "/ingredient.png",
-      },
-      {
-        title: "Expert Chefs",
-        img: "/chef.png",
-      },
-      {
-        title: "Premium Service",
-        img: "/premium.png",
-      },
-    ].map((item, index) => (
-      <motion.div
-        key={index}
-        whileHover={{
-          y: -10,
-          scale: 1.05,
-        }}
-        style={{
-                 background:
-     "linear-gradient(135deg, #f6dde3 0%, #f2eaf1 25%, #f8f5f3 50%, #eaf4f0 75%, #dcefe6 100%)",backdropFilter:"blur(10px)",
-          padding: "20px",
-          borderRadius: "12px",
-          boxShadow: "2px 0px 15px brown",
-          textAlign: "center",
-         
-        }}
-      >
-        {item.img && (
-          <img
-            src={item.img}
-            alt={item.title}
-            style={{
-              width: "100%",
-              height: "180px",
-              objectFit: "cover",
-              borderRadius: "12px",
-              marginBottom: "15px",
-              border:"1px solid white",boxShadow:"2px 0px 15px skyblue"
-            }}
-          />
-        )}
-    
-        <h3 style={{color:"#da4373"}}>{item.title}</h3>
-      </motion.div>
-    ))}
-            </div>
-          </div>
 
-          {/* services */}
+background:"#fff8f5",overflow:"hidden"
 
-    <div style={{ padding: "10px 10%",}}>
-      <h4
-        style={{
-          color: "#78104d",
-          textAlign: "center",
-          letterSpacing: "2px",
-          fontSize:20
-        }}
-      >
-        WHAT WE DO
-      </h4>
+}}
 
-      <h2
-        style={{
-          textAlign: "center",
-          fontSize: {md:"45px"},
-          marginBottom: "50px",
-        }}
-      >
-        Premium Catering Services
-      </h2>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns:
-            "repeat(auto-fit,minmax(250px,1fr))",
-          gap: "25px",
-        }}
-      >
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ y: -10 }}
-            style={{
-              borderRadius: "20px",
-              overflow: "hidden",
-               background:"linear-gradient(135deg,pink,white,pink)",
-              boxShadow:
-                "5px 5px 20px  #78104d",
-            }}
-          >
-            <img
-              src={service.img}
-              alt={service.title}
-              style={{
-                width: "100%",
-                height: "250px",
-                objectFit: "cover",
-              }}
-            />
-
-            <div style={{ padding: "20px" }}>
-              <h3 style={{ display: "flex", alignItems: "center", gap: "8px",color:" #78104d"
-                }}>
-                {service.icon} {service.title}</h3>
-              <p style={{
-    fontFamily: "math",
-    lineHeight: 1.7,
-    letterSpacing: "0.3px",
-    fontSize:18,
-    fontWeight:500,
-    wordSpacing: "2px",
-    color: "black",
-  }}
 >
-{service.desc}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
 
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: "40px",marginBottom:"20px"
-        }}
-      >
-        <Link to= "/Services">
-        <Button
-          variant="contained"
-          // onClick={() => navigate("/Services")}
-          sx={{
-            background:
-              "linear-gradient( #e4729f, #78104d)",
-            borderRadius: "30px",
-            px: 4,
-          }}
-        >
-          View All Services
-        </Button>
-        </Link>
-      </div>
-    </div>
 
-    {/* testimonals */}
 
-    <Box
-  sx={{
-    py: 10,
-    px: 2,
+<motion.img
 
-    // background:
-    //   "linear-gradient(135deg,#f8e8ff, #bab0d4, #ffe6f7)",
-           background:
-     "linear-gradient(200deg, #f6dde3 0%, #f2eaf1 25%, #f8f5f3 50%, #eaf4f0 75%, #dcefe6 100%)",
+src="/chef.png"
 
-    overflow: "hidden",
-    position: "relative",
-  }}
+
+initial={{
+opacity:0,
+x:-100
+}}
+
+whileInView={{
+opacity:1,
+x:0
+}}
+
+transition={{
+duration:1
+}}
+
+
+style={{
+
+width:"100%",
+
+maxWidth:"450px",
+
+borderRadius:"30px",
+
+boxShadow:
+"0 15px 35px rgba(0,0,0,.2)"
+
+}}
+
+
+/>
+
+
+
+
+<motion.div
+
+initial={{
+opacity:0,
+x:100
+}}
+
+whileInView={{
+opacity:1,
+x:0
+}}
+
+transition={{
+duration:1
+}}
+
 >
-  <motion.div
-  initial={{
-    opacity: 0,
-    y: -50,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-  }}
-  transition={{
-    duration: 1,
-  }}
+
+
+
+<Typography
+
+sx={{
+
+fontSize:{
+xs:"30px",
+md:"45px"
+},
+
+fontWeight:800,
+
+color:"#78104d",
+
+fontFamily:"Poppins"
+
+}}
+
 >
-  <Typography
-    variant="h2"
-    sx={{
-      textAlign: "center",
 
-      // fontWeight: {md:800},
+About Royal Feast Catering
 
-      background:
-        "linear-gradient(90deg,#7b2cbf,#ff4d9d)",
+</Typography>
 
-      WebkitBackgroundClip: "text", textShadow:"0 0 5px violet",
 
-      WebkitTextFillColor:
-        "transparent",
 
-      mb: 6,
-    }}
-  >
-    Testimonials
-  </Typography>
+<Typography
+
+sx={{
+
+mt:2,
+
+fontSize:{
+xs:"16px",
+md:"20px"
+},
+
+lineHeight:1.8,
+
+fontFamily:"Poppins"
+
+}}
+
+>
+
+We create unforgettable food experiences
+for weddings, birthdays and corporate events.
+Our chefs bring tradition, quality and creativity
+together to make every celebration special.
+
+</Typography>
+
+
 </motion.div>
+
+
+</Box>
+
+
+
+
+
+
+
+{/* WHY CHOOSE */}
+
+
+
+<Box
+
+sx={{
+
+py:6,
+
+px:{xs:2,md:10}
+
+}}
+
+>
+
+
+
+<motion.div
+
+initial={{
+opacity:0,
+y:-40
+}}
+
+whileInView={{
+opacity:1,
+y:0
+}}
+
+>
+
+
+<Typography
+
+sx={{
+
+textAlign:"center",
+
+fontSize:{
+xs:"30px",
+md:"45px"
+},
+
+fontWeight:800,
+
+color:"#78104d",
+
+fontFamily:"Poppins"
+
+}}
+
+>
+
+Why Choose Royal Feast Catering
+
+</Typography>
+
+
+</motion.div>
+
+
+
+
+<Box
+
+sx={{
+
+mt:5,
+
+display:"grid",
+
+gridTemplateColumns:
+"repeat(auto-fit,minmax(250px,1fr))",
+
+gap:3
+
+}}
+
+>
+
+
+
+{
+
+[
+
+{
+title:"Fresh Ingredients",
+img:"/ingredient.png"
+},
+
+{
+title:"Expert Chefs",
+img:"/chef.png"
+},
+
+{
+title:"Premium Service",
+img:"/premium.png"
+}
+
+
+].map((item,index)=>(
+
+
+
+<motion.div
+
+key={index}
+
+whileHover={{
+
+scale:1.05,
+
+y:-10
+
+}}
+
+
+style={{
+
+background:"#fff",
+
+padding:"20px",
+
+borderRadius:"20px",
+
+boxShadow:
+"0 10px 25px rgba(0,0,0,.15)",
+
+textAlign:"center"
+
+}}
+
+
+>
+
+
+<img
+
+src={item.img}
+
+style={{
+
+width:"100%",
+
+height:"200px",
+
+objectFit:"cover",
+
+borderRadius:"15px"
+
+}}
+
+
+/>
+
+
+<Typography
+
+sx={{
+
+mt:2,
+
+fontWeight:700,
+
+fontFamily:"Poppins",
+
+color:"#da4373"
+
+}}
+
+>
+
+{item.title}
+
+</Typography>
+
+
+
+</motion.div>
+
+
+))
+
+
+}
+
+
+
+</Box>
+
+
+</Box>
+{/* SERVICES */}
+
+
+<Box
+
+sx={{
+
+py:8,
+
+px:{xs:2,md:10}
+
+}}
+
+>
+
+
+<Typography
+
+sx={{
+
+textAlign:"center",
+
+fontSize:{
+xs:"30px",
+md:"45px"
+},
+
+fontWeight:800,
+
+color:"#78104d",
+
+fontFamily:"Poppins",
+
+mb:5
+
+}}
+
+>
+
+Premium Catering Services
+
+</Typography>
+
+
+
+
+<Box
+
+sx={{
+
+display:"grid",
+
+gridTemplateColumns:
+"repeat(auto-fit,minmax(300px,1fr))",
+
+gap:4
+
+}}
+
+>
+
+
+{
+
+services.map((service,index)=>(
+
+
+<motion.div
+
+key={index}
+
+whileHover={{
+
+y:-10
+
+}}
+
+
+style={{
+
+background:
+"linear-gradient(135deg,#ffd6e0,#fff)",
+
+borderRadius:"25px",
+
+overflow:"hidden",
+
+boxShadow:
+"0 10px 30px rgba(0,0,0,.15)"
+
+}}
+
+
+>
+
+
+<img
+
+src={service.img}
+
+style={{
+
+width:"100%",
+
+height:"260px",
+
+objectFit:"cover"
+
+}}
+
+
+/>
+
+
+<Box
+
+sx={{
+
+p:3
+
+}}
+
+>
+
+
+<Typography
+
+sx={{
+
+display:"flex",
+
+alignItems:"center",
+
+gap:1,
+
+fontWeight:800,
+
+fontSize:"22px",
+
+color:"#78104d",
+
+fontFamily:"Poppins"
+
+}}
+
+>
+
+{service.icon}
+
+{service.title}
+
+
+</Typography>
+
+
+
+<Typography
+
+sx={{
+
+mt:2,
+
+fontSize:"17px",
+
+lineHeight:1.7,
+
+fontFamily:"Poppins"
+
+}}
+
+>
+
+{service.desc}
+
+</Typography>
+
+
+
+</Box>
+
+
+</motion.div>
+
+
+
+))
+
+
+}
+
+
+
+</Box>
+
+
+
+<Box
+
+sx={{
+
+textAlign:"center",
+
+mt:5
+
+}}
+
+>
+
+
+<Link to="/Services">
+
+
+<Button
+
+sx={{
+
+px:5,
+
+py:1.5,
+
+borderRadius:"30px",
+
+background:
+"linear-gradient(45deg,#e4729f,#78104d)",
+
+color:"#fff",
+
+fontWeight:700
+
+}}
+
+>
+
+View All Services
+
+</Button>
+
+
+</Link>
+
+
+
+</Box>
+
+
+
+</Box>
+
+
+
+
+
+
+
+{/* TESTIMONIALS */}
+
+
+
+<Box
+
+sx={{
+
+py:8,
+
+px:2,overflow:"hidden",
+
+background:
+"#fff5f8"
+
+}}
+
+>
+
+
+
+<Typography
+
+sx={{
+
+textAlign:"center",
+
+fontSize:{
+xs:"32px",
+md:"45px"
+},
+
+fontWeight:800,
+
+fontFamily:"Poppins",
+
+color:"#78104d",
+
+mb:5
+
+}}
+
+>
+
+Testimonials
+
+</Typography>
+
+
+
 
 <AnimatePresence mode="wait">
-  <motion.div
-    key={current}
-    initial={{
-      opacity: 0,
-      x: 100,
-    }}
-    animate={{
-      opacity: 1,
-      x: 0,
-    }}
-    exit={{
-      opacity: 0,
-      x: -100,
-    }}
-    transition={{
-      duration: 0.8,
-    }}
-  >
-    <Box
-  sx={{
-    maxWidth: "900px",
 
-    mx: "auto",
 
-    p: 5,
+<motion.div
 
-    borderRadius: "40px",
+key={current}
 
-    backdropFilter:
-      "blur(20px)",
+initial={{
 
-             background:
-     "linear-gradient(135deg,pink 0%, #f2eaf1 25%, #f8f5f3 50%, #eaf4f0 75%, #dcefe6 100%)",
-    // background:
-    //   "rgba(140, 111, 187, 0.5)",
+opacity:0,
 
-    boxShadow:
-      "0px 0px 20px skyblue",
-  }}
+x:100
+
+}}
+
+animate={{
+
+opacity:1,
+
+x:0
+
+}}
+
+exit={{
+
+opacity:0,
+
+x:-100
+
+}}
+
+transition={{
+
+duration:.6
+
+}}
+
 >
+
+
 
 <Box
-  sx={{
-    display: "flex",
-    justifyContent: "center",
-    mb: 2,
-  }}
+
+sx={{
+
+maxWidth:"850px",
+
+mx:"auto",
+
+p:5,
+
+borderRadius:"35px",
+
+background:"wheat",
+
+boxShadow:
+"0 10px 30px rgba(0,0,0,.15)"
+
+}}
+
 >
-  {[...Array(reviews[current].rating)]
-    .map((_, index) => (
-      <StarIcon
-        key={index}
-        sx={{
-          color: "#FFD700",
-          fontSize: 30,
-        }}
-      />
-    ))}
+
+
+
+<Box
+
+sx={{
+
+display:"flex",
+
+justifyContent:"center"
+
+}}
+
+>
+
+
+{
+
+[...Array(reviews[current].rating)]
+
+.map((_,i)=>(
+
+
+<StarIcon
+
+key={i}
+
+sx={{
+
+color:"#FFD700",
+
+fontSize:35
+
+}}
+
+
+/>
+
+
+))
+
+
+}
+
+
+
 </Box>
 
-  <Typography
-  variant="h4"
-  sx={{
-    fontWeight: 700,
 
-    color: "#7b2cbf",
 
-    textAlign: "center",
-  }}
->
-  {reviews[current].name}
-</Typography>
 <Typography
-  sx={{
-    mt: 3,
 
-    textAlign: "center",
+sx={{
 
-    fontSize: "1.2rem",
+textAlign:"center",
 
-    lineHeight: 2,
+fontSize:"25px",
 
-    color: "#444",
-  }}
+fontWeight:700,
+
+mt:2,
+
+color:"#78104d"
+
+}}
+
 >
-  "{reviews[current].review}"
+
+{reviews[current].name}
+
 </Typography>
+
+
+
+<Typography
+
+sx={{
+
+textAlign:"center",
+
+mt:3,
+
+fontSize:"18px",
+
+lineHeight:1.8,
+
+fontFamily:"Poppins"
+
+}}
+
+>
+
+"{reviews[current].review}"
+
+</Typography>
+
+
+
 </Box>
+
+
 </motion.div>
+
+
 </AnimatePresence>
 
+
+
+
 <Box
-  sx={{
-    display: "flex",
-    justifyContent: "center",
-    gap: 1.5,
-    mt: 4,
-  }}
+
+sx={{
+
+display:"flex",
+
+justifyContent:"center",
+
+gap:2,
+
+mt:4
+
+}}
+
 >
-  {reviews.map((_, index) => (
-    <Box
-      key={index}
-      onClick={() =>
-        setCurrent(index)
-      }
-      sx={{
-        width:
-          current === index
-            ? 30
-            : 12,
 
-        height: 12,
 
-        borderRadius: "20px",
+{
 
-        cursor: "pointer",
+reviews.map((_,index)=>(
 
-        transition: ".4s",
 
-        background:
-          current === index
-            ? "linear-gradient(90deg,#7b2cbf,#ff4d9d)"
-            : "#d4b5ff",
-      }}
-    />
-  ))}
+<Box
+
+key={index}
+
+onClick={()=>setCurrent(index)}
+
+sx={{
+
+width:
+
+current===index ? 35 : 12,
+
+height:12,
+
+borderRadius:20,
+
+cursor:"pointer",
+
+background:
+
+current===index
+
+?
+
+"#78104d"
+
+:
+
+"pink"
+
+}}
+
+/>
+
+
+))
+
+
+}
+
+
+
 </Box>
+
+
+
 </Box>
-    
-    </> 
-  );
-};
+
+
+
+
+</>
+
+)
+
+}
+
 
 export default Home;

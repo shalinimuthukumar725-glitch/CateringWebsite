@@ -1,5 +1,47 @@
-import { Heart } from "lucide-react";
 
+//   const menuData = {
+//      Wedding: {
+//       Drinks: [
+//         "/coffee.png",
+//         "/tea.png",
+//         "/milk.png",
+//         "/ragi.png",
+//         "/badam.png",
+//         "/bornvita.png"
+//       ],
+
+//       Breakfast: [
+//         "/idli.png",
+//         "/dosa.png",
+//         "/sambar.png",
+//         "/coconut.png",
+//         "/chutney.png",
+//       ],
+
+//       Lunch: [
+//         "/vathal.png",
+//         "/rasam.png",
+//         "/sambar.png",
+//         "/rice1.png",
+//         "/poriyal.png",
+//         "/pickle.png"
+//       ],
+
+//       Desserts: [
+//         "/mango.png",
+//         "/icecream.png",
+//         "/gulab.png",
+//         "/rasagulla.png",
+//         "/cake.png"
+//       ],
+
+//       Juices:[
+//         "/apple.png",
+//         "/mangojuice.png",
+//         "/orange.png",
+//         "/grapes.png"
+//       ]
+//     },
 
 import React, { useState } from "react";
 import {
@@ -8,683 +50,270 @@ import {
   CardMedia,
   Typography,
   Button,
+  Dialog,
+  DialogContent
 } from "@mui/material";
 
 function Menu() {
-  const [selectedEvent, setSelectedEvent] =
-    useState(null);
+  const [foodType,setFoodType] = useState("veg");
+  const [selectedEvent,setSelectedEvent] = useState("Wedding");
+  const [selectedCategory,setSelectedCategory] = useState("Drinks");
+  const [eventModal,setEventModal] = useState(false);
 
-  const [selectedCategory, setSelectedCategory] =
-    useState("Drinks");
+const menuData = {
+veg:{
+Wedding:{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
 
-  const menuData = {
-     Wedding: {
-      Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
+Engagement:{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
 
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
+Reception:{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
 
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
+"HouseWarming":{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
 
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
+"Baby Shower":{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
 
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
+Mehandi:{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
 
-    "60th Wedding": {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
+"Graduation Ceremony":{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
 
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-
-    "70th Wedding": {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-
-    "80th Wedding": {
-      Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-
-    Engagement: {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-    Seemantham: {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-    Birthday: {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-    Housewarming: {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-    Corporate: {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-    Graduation: {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-    Mehandi: {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-    Retirement: {
-       Drinks: [
-        "/coffee.png",
-        "/tea.png",
-        "/milk.png",
-        "/ragi.png",
-        "/badam.png",
-        "/bornvita.png"
-      ],
-
-      Breakfast: [
-        "/idli.png",
-        "/dosa.png",
-        "/sambar.png",
-        "/coconut.png",
-        "/chutney.png",
-      ],
-
-      Lunch: [
-        "/vathal.png",
-        "/rasam.png",
-        "/sambar.png",
-        "/rice1.png",
-        "/poriyal.png",
-        "/pickle.png"
-      ],
-
-      Desserts: [
-        "/mango.png",
-        "/icecream.png",
-        "/gulab.png",
-        "/rasagulla.png",
-        "/cake.png"
-      ],
-
-      Juices:[
-        "/apple.png",
-        "/mangojuice.png",
-        "/orange.png",
-        "/grapes.png"
-      ]
-    },
-  };
-
-  const events = Object.keys(menuData);
-
-  if (!selectedEvent) {
-    return (
-      <Box sx={{ p: 4 ,background:"linear-gradient(90deg,pink,white,pink)"}}>
-        <Typography
-          variant="h3"
-          sx={{textAlign:"center",mb:5}}
-          
-        >
-          Choose Your Event
-        </Typography>
-
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(250px,1fr))",
-            gap: 3,
-          }}
-        >
-          {events.map((event) => (
-            <Card
-              key={event}
-              onClick={() => {
-                setSelectedEvent(event);
-
-                const firstCategory =
-                  Object.keys(
-                    menuData[event]
-                  )[0];
-
-                setSelectedCategory(
-                  firstCategory
-                );
-              }}
-              sx={{
-                cursor: "pointer",
-                borderRadius: "20px",textAlign:"center",
-                background:"linear-gradient(190deg,crimson,pink,crimson)",
-                
-              }}
-            >
-              {/* <CardMedia
-                component="img"
-                height="220"
-                image="https://images.unsplash.com/photo-1555244162-803834f70033"
-              /> */}
-
-              <Typography
-                textAlign="center"
-                sx={{p:1,fontWeight:"bold",color:"purple",
-                  animation: "floatText 3s ease-in-out infinite",
-                
-                  "@keyframes floatText" : {
-                  "0%":{
-                    transform: "translateY(0px)",
-                  },
-                  "50%":{
-                    transform:"translateX(-10px)",
-                  },
-                  "100%" : {
-                     transform: "translateY(0px)",
-                  },
-                },}}
-              >
-                {event}
-              </Typography>
-            </Card>
-          ))}
-        </Box>
-      </Box>
-    );
-  }
-
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        minHeight: "100vh",
-      }}
-    >
-      {/* Left Side */}
-
-      <Box
-        sx={{
-          width: {md:250,xs:100},
-          borderRight: "1px solid #ddd",
-          p:{md:2},fontSize:{xs:10}
+"Corporate Event":{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
         
-        }}
-      >
-        <Button
-    
-          onClick={() =>
-            setSelectedEvent(null)
-          }
-          sx={{ mb: 3,width:{xs:20},fontWeight:"bold",fontSize:15,ml:{xs:3,md:10},p:1 ,background:"linear-Gradient(brown,pink)",color:"white",fontFamily:"cursive"}}
-        >
-          Back
-        </Button>
+Birthday:{
+       Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+       Breakfast:["/idli.png"],
+       Lunch:["/rice1.png"],
+       Desserts:["/cake.png"]  },
 
-        {Object.keys(
-          menuData[selectedEvent]
-        ).map((category) => (
-          <Button
-            key={category}
-            fullWidth
-            sx={{
-              mb: 1, fontWeight:"bolder",fontFamily:"emoji",fontSize:{md:15},background:"linear-gradient(120deg,brown,pink)",color:"white"
-            }}
-            onClick={() =>
-              setSelectedCategory(
-                category
-              )
-            }
-          >
-            {category}
-          </Button>
-        ))}
-      </Box>
+"Retirement":{   
+        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png"],
+        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
+        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
+        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
+        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },       
+},
 
-      {/* Right Side */}
+nonveg:{
+Wedding:{
+       Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+       Breakfast:["/idli.png","/parota.png","/vada.png"],
+       Lunch:["/non1.png","/chicken.png","/chukka.png","/65.png","/fish.png","/non2.png"],
+       Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"] ,
+       Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  }, 
 
-      <Box
-        sx={{
-          flex: 1,
-          p: {md:4},
-          background:"linear-gradient(pink,white,pink)"
-        }}
-      >
-        <Typography
-          variant="h4"
-          mb={3}
-        >
-          {selectedCategory}
-        </Typography>
+Birthday:{
+       Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png"],
+       Breakfast:["/dosa.png"],
+       Lunch:["/chicken65.png"], 
+       Desserts:["/cake.png"]  },
 
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(250px,1fr))",
-            gap: 3,
-          }}
-        >
-          {menuData[selectedEvent][
-            selectedCategory
-          ]?.map((img, index) => (
-            <Card
-              key={index}
-              sx={{
-                // borderRadius: "20px",
-                overflow: "hidden",
-                                           
-     animation: `cardDrop 5s ease ${ index * 0.3}s both infinite`,
+Engagement:{
+       Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
+       Breakfast:["/dosa.png"],
+       Lunch:["/non1.png"],
+       Desserts:["/cake.png"] }
+}
+};
 
+const events =
+Object.keys(menuData[foodType]);
+
+return(
+
+<Box
+sx={{
+background:"#fff5f7",
+minHeight:"100vh",
+p:{xs:2,md:4}
+}}
+>
+
+<Typography
+variant="h4"
+fontWeight="700"
+mb={3}
+>
+Menu
+</Typography>
+
+{/* VEG NON VEG BUTTON */}
+
+<Box
+sx={{
+display:"flex",
+gap:2,
+mb:3
+}}
+>
+
+<Button
+variant={
+foodType==="veg"
+?
+"contained"
+:
+"outlined"
+}
+onClick={()=>{
+setFoodType("veg");
+setEventModal(true);
+}}
+>
+Veg
+</Button>
+
+<Button
+variant={
+foodType==="nonveg"
+?
+"contained"
+:
+"outlined"
+}
+color="secondary"
+onClick={()=>{
+setFoodType("nonveg");
+setEventModal(true);
+}}>
+  Non Veg
+</Button>
+</Box>
+
+{/* EVENT MODAL */}
+
+<Dialog open={eventModal}>
+<DialogContent
+sx={{width:{md:300,xs:260}}}>
+
+<Typography
+fontWeight="700"
+mb={2}>
+Select Event
+</Typography>
+
+{events.map((event)=>(
+
+<Button
+key={event}
+fullWidth
+sx={{
+mb:1
+}}
+onClick={()=>{
+setSelectedEvent(event);
+setSelectedCategory("Drinks");
+setEventModal(false);
+}}>
+{event}
+</Button>
+))}
+</DialogContent>
+</Dialog>
+
+<Typography
+variant="h5"
+fontWeight="700"
+mb={2}>
+{selectedEvent} - {foodType}
+</Typography>
+
+{/* CATEGORY */}
+
+<Box
+sx={{
+display:"flex",
+gap:1,
+flexWrap:"wrap",
+mb:3
+}}
+>
+{Object.keys(
+menuData[foodType][selectedEvent]
+)
+
+.map((cat)=>(
+
+<Button
+key={cat}
+variant={
+selectedCategory===cat
+?
+"contained"
+:
+"outlined"
+}
+onClick={()=>{
+setSelectedCategory(cat);
+}}>
+{cat}
+</Button>
+
+))
+}
+</Box>
+
+{/* FOOD CARDS */}
+
+<Box
+sx={{
+display:"grid",
+gridTemplateColumns:
+"repeat(auto-fit,minmax(250px,1fr))",
+gap:3
+}}
+>
+{
+menuData[foodType]
+[selectedEvent]
+[selectedCategory]
+
+.map((img,index)=>(
+
+<Card
+key={index}
+sx={{
+borderRadius:3,
+overflow:"hidden",
+     animation: "cardDrop 5s ease ",
   "@keyframes cardDrop" : {
   from :{
     transform: "translateY(-80px)",
@@ -696,20 +325,18 @@ function Menu() {
      transform: "translateY(0)",
   }
 }
-              }}
-            >
-              <CardMedia
-                component="img"
-                image={img}
-                height="250"
-
-              />
-            </Card>
-          ))}
-        </Box>
-      </Box>
-    </Box>
-  );
+}}
+>
+<CardMedia
+component="img"
+height="230"
+image={img}
+/>
+</Card>
+))
 }
-
+</Box>
+</Box>
+)
+}
 export default Menu;

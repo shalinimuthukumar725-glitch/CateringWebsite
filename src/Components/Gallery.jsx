@@ -2,15 +2,15 @@ import React from "react";
 import { Box, Grid, Card, CardMedia, Typography } from "@mui/material";
 
 const images = [
-  { category: "Food", img: "/food1.png" },
-  { category: "Food", img: "/food.png" },
-  { category: "Buffet", img: "/rice.png" },
-  { category: "Buffet", img: "/snack.png" },
-  { category: "Sweets", img: "/sweet1.png" },
-  { category: "Sweets", img: "/sweet.png" },
+  { category: "Food", img: "/img1.png" },
+  { category: "Food", img: "/img8.png" },
+  { category: "Buffet", img: "/img3.png" },
+  { category: "Buffet", img: "/img4.png" },
+  { category: "Sweets", img: "/img5.png" },
+  { category: "Sweets", img: "/img6.png" },
   {catagory:"Drink",img:"/snack1.png"},
-  {catagory:"",img:"/special.png"},
-  {catagory:"",img:"/tiffin.png"},
+  {catagory:"",img:"/img2.png"},
+  {catagory:"",img:"/img7.png"},
   {catagory:"",img:"/icecream.png"},
   {catagory:"",img:"/mango.png"},
   {catagory:"",img:"/cake.png"}
@@ -18,10 +18,10 @@ const images = [
 
 export default function Gallery() {
   return (
-    <Box sx={{ p: 4, background: "linear-gradient(120deg,pink,white,pink)", textAlign: "center" }}>
+    <Box sx={{ p: 4, background: "linear-gradient(wheat,white,wheat)", textAlign: "center" }}>
       
       {/* Title */}
-      <Typography variant="h4"  sx={{ mb: 3, color: " rgb(255, 0, 149)", fontWeight: "bold",
+      <Typography variant="h4"  sx={{ mb: 3, color: " rgb(156, 100, 31)", fontWeight: "bold",
          animation: "blinkMove 4s ease",
 
   "@keyframes blinkMove" : {
@@ -67,10 +67,10 @@ export default function Gallery() {
                 },
                cursor: "pointer",
                 transition: "0.3s",
-                border:"2px solid violet",
+                // border:"2px solid violet",
                 "&:hover": {
                   transform: "scale(1.05)",
-                  boxShadow: "0 0 20px purple",
+                  // boxShadow: "0 0 20px brown",
                 }
               }}
             >
