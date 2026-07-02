@@ -44,7 +44,7 @@ Location: ${formData.location}`;
       <Box sx={{overflowX:"hidden",}}>
       <Box
         sx={{
-          height: "50vh",
+          height: "60vh",
           backgroundImage: "url('/conban.png')",
           backgroundSize: "cover", 
           backgroundPosition: "center",
@@ -56,21 +56,21 @@ Location: ${formData.location}`;
          
         }}
       >
-        {/* Overlay */}
-        {/* <Box
+        {/* Overlay  */}
+       <Box
           sx={{
             position: "absolute",
-            inset: 0,
+            // inset: 0,
             background:
               "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65))",
           }}
-        /> */}
+        />
 
          <motion.h1
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 ,color:["#fff","#25e7d8"],textShadow:"0 0 5px gold "}}
                   transition={{opacity:{ duration: 0.8 },y:{duration:0.8},color:{duration:4,repeat:Infinity},}}
-                  style={{ fontSize: {md:"60px"}, fontWeight: "bold" }}
+                  style={{ fontSize: "60px", fontWeight: "bold" }}
                 >
                   Contact
                 </motion.h1>

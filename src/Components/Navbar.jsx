@@ -87,8 +87,8 @@ function Navbar() {
             { name: "About", path: "/about" },
             { name: "Services", path: "/services" },
             { name: "Gallery", path: "/gallery" },
+            { name: "Menu",  path :"/menu"},
             { name: "Contact", path: "/Contact" },
-            { name: "Menu",  path :"/menu"}
           ].map((item) => (
             <motion.div
               key={item.name}
@@ -151,8 +151,8 @@ function Navbar() {
       { name: "About", path: "/about" ,icon:<Info style={{color:"purple"}}/>},
       { name: "Services", path: "/services" ,icon:<RoomService style={{color:"purple"}}/>},
       { name: "Gallery", path: "/gallery",icon:<PhotoLibrary style={{color:"purple"}}/> },
-      { name: "Contact", path: "/contact",icon:<ContactMail style={{color:"purple"}}/> },
       { name: "Menu", path: "/menu" ,icon:<RestaurantMenu style={{color:"purple"}}/>},
+      { name: "Contact", path: "/contact",icon:<ContactMail style={{color:"purple"}}/> },
     ].map((item) => (
       <Button
       startIcon={item.icon}

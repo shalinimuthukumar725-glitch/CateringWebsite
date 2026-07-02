@@ -1,48 +1,3 @@
-
-//   const menuData = {
-//      Wedding: {
-//       Drinks: [
-//         "/coffee.png",
-//         "/tea.png",
-//         "/milk.png",
-//         "/ragi.png",
-//         "/badam.png",
-//         "/bornvita.png"
-//       ],
-
-//       Breakfast: [
-//         "/idli.png",
-//         "/dosa.png",
-//         "/sambar.png",
-//         "/coconut.png",
-//         "/chutney.png",
-//       ],
-
-//       Lunch: [
-//         "/vathal.png",
-//         "/rasam.png",
-//         "/sambar.png",
-//         "/rice1.png",
-//         "/poriyal.png",
-//         "/pickle.png"
-//       ],
-
-//       Desserts: [
-//         "/mango.png",
-//         "/icecream.png",
-//         "/gulab.png",
-//         "/rasagulla.png",
-//         "/cake.png"
-//       ],
-
-//       Juices:[
-//         "/apple.png",
-//         "/mangojuice.png",
-//         "/orange.png",
-//         "/grapes.png"
-//       ]
-//     },
-
 import React, { useState } from "react";
 import {
   Box,
@@ -63,94 +18,112 @@ function Menu() {
 const menuData = {
 veg:{
 Wedding:{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
+        Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
 
 Engagement:{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
+         Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
 
 Reception:{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
+          Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
+
 
 "HouseWarming":{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
+         Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
+
 
 "Baby Shower":{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
+        Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
+
 
 Mehandi:{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
+         Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
+
 
 "Graduation Ceremony":{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
+         Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
+
 
 "Corporate Event":{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },
+         Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}],  
+        soups:[{img:"/soup1.png",name:"Celery Soup"},{img:"/soup2.png",name:"Bottle Guard Soup"},{img:"/soup3.png",name:"Broccoli Soup"},{img:"/soup4.png",name:"Vegan Thai Coconut Soup"},{img:"/soup5.png",name:"Mushroom Barley Soup"}],},
         
 Birthday:{
-       Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-       Breakfast:["/idli.png"],
-       Lunch:["/rice1.png"],
-       Desserts:["/cake.png"]  },
+         Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
 
 "Retirement":{   
-        Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png"],
-        Breakfast:["/idli.png","/poori.png","/dosa.png","/vegrice.png","/podi.png"],
-        Lunch:["/rice1.png","/sambar.png","/vathal.png","/rasam.png","/poriyal.png","/pickle.png"],
-        Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"],
-        Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  },       
+         Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/idli.png",name:"Idli"},{img:"/coconut.png",name:"Coconut Chutney"},{img:"/chutney.png",name:"Tomato Chutney"},{img:"/sambar.png",name:"Sambar"},{img:"/poori.png",name:"Poori"},{img:"/dosa.png",name:"Dosa"},{img:"/vegrice.png",name:"Vegetable Rice"},{img:"/podi.png",name:"Podi Idli"}],
+        Lunch:[{img:"/rice1.png",name:"Rice"},{img:"/sambar.png",name:"Sambar"},{img:"/vathal.png",name:"Vathal Kulambu"},{img:"/rasam.png",name:"Rasam"},{img:"/poriyal.png",name:"Veg Poriyal"},{img:"/pickle.png",name:"Spicy Pickle"}],
+        Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
+       
 },
 
 nonveg:{
 Wedding:{
-       Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-       Breakfast:["/idli.png","/parota.png","/vada.png"],
-       Lunch:["/non1.png","/chicken.png","/chukka.png","/65.png","/fish.png","/non2.png"],
-       Desserts:["/img1.png","/gulab.png","/mango.png","/rasagulla.png","/img7.png"] ,
-       Juices:["/apple.png","/grapes.png","/mangojuice.png","/orange.png"]  }, 
+        Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/parota.png",name:"Parotta"},{img:"/chicken.png",name:"Chicken Gravy"},{img:"/vada.png",name:"Vada"}],
+       Lunch:[{img:"/non1.png",name:"Chicken Biryani"},{img:"/chicken.png",name:"Chicken Gravy"},{img:"/chukka.png",name:"Chicken Chukka"},{img:"/65.png",name:"Chicken 65"},{img:"/fish.png",name:"Fish Fry"},{img:"/non2.png",name:"Mutton Biryani"}],
+       Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
+
+
+"Corporate Event":{
+       Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/parota.png",name:"Parotta"},{img:"/chicken.png",name:"Chicken Gravy"},{img:"/vada.png",name:"Vada"}],
+       Lunch:[{img:"/non1.png",name:"Chicken Biryani"},{img:"/chicken.png",name:"Chicken Gravy"},{img:"/chukka.png",name:"Chicken Chukka"},{img:"/65.png",name:"Chicken 65"},{img:"/fish.png",name:"Fish Fry"},{img:"/non2.png",name:"Mutton Biryani"}],
+       Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
 
 Birthday:{
-       Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png"],
-       Breakfast:["/dosa.png"],
-       Lunch:["/chicken65.png"], 
-       Desserts:["/cake.png"]  },
+       Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/parota.png",name:"Parotta"},{img:"/chicken.png",name:"Chicken Gravy"},{img:"/vada.png",name:"Vada"}],
+       Lunch:[{img:"/non1.png",name:"Chicken Biryani"},{img:"/chicken.png",name:"Chicken Gravy"},{img:"/chukka.png",name:"Chicken Chukka"},{img:"/65.png",name:"Chicken 65"},{img:"/fish.png",name:"Fish Fry"},{img:"/non2.png",name:"Mutton Biryani"}],
+       Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
 
 Engagement:{
-       Drinks:["/coffee.png","/tea.png","/milk.png","/bornvita.png","/badam.png","/ragi.png"],
-       Breakfast:["/dosa.png"],
-       Lunch:["/non1.png"],
-       Desserts:["/cake.png"] }
+        Drinks:[{img:"/coffee.png",name:"Filter Coffee"},{img:"/tea.png",name:"Tea"},{img:"/milk.png",name:"Milk"},{img:"/bornvita.png",name:"BornVita"},{img:"/badam.png",name:"Badam Milk"},{img:"/ragi.png",name:"Ragi"}],
+        Breakfast:[{img:"/parota.png",name:"Parotta"},{img:"/chicken.png",name:"Chicken Gravy"},{img:"/vada.png",name:"Vada"}],
+       Lunch:[{img:"/non1.png",name:"Chicken Biryani"},{img:"/chicken.png",name:"Chicken Gravy"},{img:"/chukka.png",name:"Chicken Chukka"},{img:"/65.png",name:"Chicken 65"},{img:"/fish.png",name:"Fish Fry"},{img:"/non2.png",name:"Mutton Biryani"}],
+       Desserts:[{img:"/img1.png",name:"Panna Cotta Berry"},{img:"/gulab.png",name:"Gulab Jamun"},{img:"/mango.png",name:"Coconut Mango Sago"},{img:"/rasagulla.png",name:"Rasagulla"},{img:"/img7.png",name:"Chocolate & Blueberry"}],
+        Juices:[{img:"/apple.png",name:"Apple Juice"},{img:"/grapes.png",name:"Grapes Juice"},{img:"/mangojuice.png",name:"Mango Juice"},{img:"/orange.png",name:"Orange Juice"}]  },
 }
 };
 
@@ -306,7 +279,7 @@ menuData[foodType]
 [selectedEvent]
 [selectedCategory]
 
-.map((img,index)=>(
+.map((food,index)=>(
 
 <Card
 key={index}
@@ -330,8 +303,14 @@ overflow:"hidden",
 <CardMedia
 component="img"
 height="230"
-image={img}
+image={food.img}
 />
+<Box sx={{p:2}}>
+        <Typography fontWeight="700" variant="h6" sx={{textAlign:"center",color:"brown"}}>
+                {food.name}
+        </Typography>
+
+</Box>
 </Card>
 ))
 }

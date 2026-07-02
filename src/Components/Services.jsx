@@ -6,30 +6,51 @@ Typography,
 Card,
 CardContent
 } from "@mui/material";
+import { useState } from "react";
 
 
 function Services(){
+  const[flipped,setFlipped]= useState(null);
 
 return(
 
 <> 
-
 {/* HERO */}
 
 <Box
 sx={{
 height:{xs:"45vh",md:"60vh"},
-backgroundImage:
-"url('/premium.png')",
-backgroundSize:"cover",
-backgroundPosition:"center",
+position:"relative",
+overflow:"hidden",
 display:"flex",
 alignItems:"center",
-justifyContent:"center",
-position:"relative"
+justifyContent:"center"
 }}
 >
 
+
+{/* BACKGROUND VIDEO */}
+
+<Box
+component="video"
+autoPlay
+loop
+muted
+playsInline
+src="/video1.mp4"
+sx={{
+position:"absolute",
+width:"100%",
+height:"100%",
+objectFit:"cover",
+top:0,
+left:0
+}}
+/>
+
+
+
+{/* Overlay */}
 
 <Box
 sx={{
@@ -39,6 +60,10 @@ background:"rgba(0,0,0,0.55)"
 }}
 />
 
+
+
+
+{/* TEXT */}
 
 <motion.div
 
@@ -96,7 +121,7 @@ Royal Feast Catering Experiences
 
 <Box
 sx={{
-py:{xs:6,md:10},
+py:{xs:3,md:1},
 px:{xs:3,md:10},
 textAlign:"center"
 }}
@@ -207,7 +232,7 @@ nonimg:"/non1.png"
 event:"Corporate Event",
 veg:"Healthy Veg Catering",
 nonveg:"Executive NonVeg Meals",
-vegimg:"/img8.png",
+vegimg:"/img7.png",
 nonimg:"/non2.png"
 },
 
@@ -294,6 +319,9 @@ overflow:"hidden"
 }}>
 
 <motion.div
+
+animate={{rotateY:flipped === index ? 180:0}}
+
 whileHover={{
 rotateY:180
 }}
@@ -302,12 +330,14 @@ transition={{
 duration:.8
 }}
 
+onClick={()=>setFlipped(flipped === index ? null :index)}
+
 style={{
 width:"100%",
 height:"100%",
 position:"relative",
 transformStyle:"preserve-3d",
-// overflow:"hidden"
+cursor:"pointer"
 }}>
 
 {/* FRONT */}

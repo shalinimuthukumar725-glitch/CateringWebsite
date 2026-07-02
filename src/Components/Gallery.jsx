@@ -3,22 +3,24 @@ import { Box, Grid, Card, CardMedia, Typography } from "@mui/material";
 
 const images = [
   { category: "Food", img: "/img1.png" },
-  { category: "Food", img: "/img8.png" },
+  { category: "Food", img: "/img7.png" },
   { category: "Buffet", img: "/img3.png" },
   { category: "Buffet", img: "/img4.png" },
   { category: "Sweets", img: "/img5.png" },
   { category: "Sweets", img: "/img6.png" },
   {catagory:"Drink",img:"/snack1.png"},
   {catagory:"",img:"/img2.png"},
-  {catagory:"",img:"/img7.png"},
-  {catagory:"",img:"/icecream.png"},
+  {catagory:"",img:"/rasagulla.png"},
+  {catagory:"",img:"/gulab.png"},
   {catagory:"",img:"/mango.png"},
   {catagory:"",img:"/cake.png"}
 ];
 
 export default function Gallery() {
   return (
-    <Box sx={{ p: 4, background: "linear-gradient(wheat,white,wheat)", textAlign: "center" }}>
+    <Box sx={{ p: 4, 
+      // background: "linear-gradient(wheat,white,wheat)", 
+    textAlign: "center" }}>
       
       {/* Title */}
       <Typography variant="h4"  sx={{ mb: 3, color: " rgb(156, 100, 31)", fontWeight: "bold",
